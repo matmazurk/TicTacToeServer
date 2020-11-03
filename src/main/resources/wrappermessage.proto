@@ -1,0 +1,38 @@
+
+syntax = "proto3";
+
+option java_outer_classname = "Message";
+
+message WrapperMessage {
+    oneof msg {
+      Register register = 1;
+      ClientList clientList = 2;
+      GameInvitation gameInvitation = 3;
+      Move move = 4;
+    }
+}
+
+message Register {
+  string nick = 1;
+  bool response = 2;
+}
+
+message Client {
+  string nick = 1;
+  int32 id = 2;
+}
+
+message ClientList {
+  repeated Client clients = 1;
+}
+
+message GameInvitation {
+  int32 from = 1;
+  int32 to = 2;
+}
+
+message Move {
+  int32 from = 1;
+  int32 x = 2;
+  int32 y = 3;
+}
