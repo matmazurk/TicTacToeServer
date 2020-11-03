@@ -32,19 +32,19 @@ public final class Message {
     Message.RegisterOrBuilder getRegisterOrBuilder();
 
     /**
-     * <code>.ClientList clientList = 2;</code>
+     * <code>.ClientsList clientList = 2;</code>
      * @return Whether the clientList field is set.
      */
     boolean hasClientList();
     /**
-     * <code>.ClientList clientList = 2;</code>
+     * <code>.ClientsList clientList = 2;</code>
      * @return The clientList.
      */
-    Message.ClientList getClientList();
+    Message.ClientsList getClientList();
     /**
-     * <code>.ClientList clientList = 2;</code>
+     * <code>.ClientsList clientList = 2;</code>
      */
-    Message.ClientListOrBuilder getClientListOrBuilder();
+    Message.ClientsListOrBuilder getClientListOrBuilder();
 
     /**
      * <code>.GameInvitation gameInvitation = 3;</code>
@@ -138,14 +138,14 @@ public final class Message {
               break;
             }
             case 18: {
-              Message.ClientList.Builder subBuilder = null;
+              Message.ClientsList.Builder subBuilder = null;
               if (msgCase_ == 2) {
-                subBuilder = ((Message.ClientList) msg_).toBuilder();
+                subBuilder = ((Message.ClientsList) msg_).toBuilder();
               }
               msg_ =
-                  input.readMessage(Message.ClientList.parser(), extensionRegistry);
+                  input.readMessage(Message.ClientsList.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((Message.ClientList) msg_);
+                subBuilder.mergeFrom((Message.ClientsList) msg_);
                 msg_ = subBuilder.buildPartial();
               }
               msgCase_ = 2;
@@ -289,7 +289,7 @@ public final class Message {
 
     public static final int CLIENTLIST_FIELD_NUMBER = 2;
     /**
-     * <code>.ClientList clientList = 2;</code>
+     * <code>.ClientsList clientList = 2;</code>
      * @return Whether the clientList field is set.
      */
     @java.lang.Override
@@ -297,25 +297,25 @@ public final class Message {
       return msgCase_ == 2;
     }
     /**
-     * <code>.ClientList clientList = 2;</code>
+     * <code>.ClientsList clientList = 2;</code>
      * @return The clientList.
      */
     @java.lang.Override
-    public Message.ClientList getClientList() {
+    public Message.ClientsList getClientList() {
       if (msgCase_ == 2) {
-         return (Message.ClientList) msg_;
+         return (Message.ClientsList) msg_;
       }
-      return Message.ClientList.getDefaultInstance();
+      return Message.ClientsList.getDefaultInstance();
     }
     /**
-     * <code>.ClientList clientList = 2;</code>
+     * <code>.ClientsList clientList = 2;</code>
      */
     @java.lang.Override
-    public Message.ClientListOrBuilder getClientListOrBuilder() {
+    public Message.ClientsListOrBuilder getClientListOrBuilder() {
       if (msgCase_ == 2) {
-         return (Message.ClientList) msg_;
+         return (Message.ClientsList) msg_;
       }
-      return Message.ClientList.getDefaultInstance();
+      return Message.ClientsList.getDefaultInstance();
     }
 
     public static final int GAMEINVITATION_FIELD_NUMBER = 3;
@@ -398,7 +398,7 @@ public final class Message {
         output.writeMessage(1, (Message.Register) msg_);
       }
       if (msgCase_ == 2) {
-        output.writeMessage(2, (Message.ClientList) msg_);
+        output.writeMessage(2, (Message.ClientsList) msg_);
       }
       if (msgCase_ == 3) {
         output.writeMessage(3, (Message.GameInvitation) msg_);
@@ -421,7 +421,7 @@ public final class Message {
       }
       if (msgCase_ == 2) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, (Message.ClientList) msg_);
+          .computeMessageSize(2, (Message.ClientsList) msg_);
       }
       if (msgCase_ == 3) {
         size += com.google.protobuf.CodedOutputStream
@@ -943,9 +943,9 @@ public final class Message {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          Message.ClientList, Message.ClientList.Builder, Message.ClientListOrBuilder> clientListBuilder_;
+          Message.ClientsList, Message.ClientsList.Builder, Message.ClientsListOrBuilder> clientListBuilder_;
       /**
-       * <code>.ClientList clientList = 2;</code>
+       * <code>.ClientsList clientList = 2;</code>
        * @return Whether the clientList field is set.
        */
       @java.lang.Override
@@ -953,27 +953,27 @@ public final class Message {
         return msgCase_ == 2;
       }
       /**
-       * <code>.ClientList clientList = 2;</code>
+       * <code>.ClientsList clientList = 2;</code>
        * @return The clientList.
        */
       @java.lang.Override
-      public Message.ClientList getClientList() {
+      public Message.ClientsList getClientList() {
         if (clientListBuilder_ == null) {
           if (msgCase_ == 2) {
-            return (Message.ClientList) msg_;
+            return (Message.ClientsList) msg_;
           }
-          return Message.ClientList.getDefaultInstance();
+          return Message.ClientsList.getDefaultInstance();
         } else {
           if (msgCase_ == 2) {
             return clientListBuilder_.getMessage();
           }
-          return Message.ClientList.getDefaultInstance();
+          return Message.ClientsList.getDefaultInstance();
         }
       }
       /**
-       * <code>.ClientList clientList = 2;</code>
+       * <code>.ClientsList clientList = 2;</code>
        */
-      public Builder setClientList(Message.ClientList value) {
+      public Builder setClientList(Message.ClientsList value) {
         if (clientListBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -987,10 +987,10 @@ public final class Message {
         return this;
       }
       /**
-       * <code>.ClientList clientList = 2;</code>
+       * <code>.ClientsList clientList = 2;</code>
        */
       public Builder setClientList(
-          Message.ClientList.Builder builderForValue) {
+          Message.ClientsList.Builder builderForValue) {
         if (clientListBuilder_ == null) {
           msg_ = builderForValue.build();
           onChanged();
@@ -1001,13 +1001,13 @@ public final class Message {
         return this;
       }
       /**
-       * <code>.ClientList clientList = 2;</code>
+       * <code>.ClientsList clientList = 2;</code>
        */
-      public Builder mergeClientList(Message.ClientList value) {
+      public Builder mergeClientList(Message.ClientsList value) {
         if (clientListBuilder_ == null) {
           if (msgCase_ == 2 &&
-              msg_ != Message.ClientList.getDefaultInstance()) {
-            msg_ = Message.ClientList.newBuilder((Message.ClientList) msg_)
+              msg_ != Message.ClientsList.getDefaultInstance()) {
+            msg_ = Message.ClientsList.newBuilder((Message.ClientsList) msg_)
                 .mergeFrom(value).buildPartial();
           } else {
             msg_ = value;
@@ -1023,7 +1023,7 @@ public final class Message {
         return this;
       }
       /**
-       * <code>.ClientList clientList = 2;</code>
+       * <code>.ClientsList clientList = 2;</code>
        */
       public Builder clearClientList() {
         if (clientListBuilder_ == null) {
@@ -1042,38 +1042,38 @@ public final class Message {
         return this;
       }
       /**
-       * <code>.ClientList clientList = 2;</code>
+       * <code>.ClientsList clientList = 2;</code>
        */
-      public Message.ClientList.Builder getClientListBuilder() {
+      public Message.ClientsList.Builder getClientListBuilder() {
         return getClientListFieldBuilder().getBuilder();
       }
       /**
-       * <code>.ClientList clientList = 2;</code>
+       * <code>.ClientsList clientList = 2;</code>
        */
       @java.lang.Override
-      public Message.ClientListOrBuilder getClientListOrBuilder() {
+      public Message.ClientsListOrBuilder getClientListOrBuilder() {
         if ((msgCase_ == 2) && (clientListBuilder_ != null)) {
           return clientListBuilder_.getMessageOrBuilder();
         } else {
           if (msgCase_ == 2) {
-            return (Message.ClientList) msg_;
+            return (Message.ClientsList) msg_;
           }
-          return Message.ClientList.getDefaultInstance();
+          return Message.ClientsList.getDefaultInstance();
         }
       }
       /**
-       * <code>.ClientList clientList = 2;</code>
+       * <code>.ClientsList clientList = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          Message.ClientList, Message.ClientList.Builder, Message.ClientListOrBuilder> 
+          Message.ClientsList, Message.ClientsList.Builder, Message.ClientsListOrBuilder> 
           getClientListFieldBuilder() {
         if (clientListBuilder_ == null) {
           if (!(msgCase_ == 2)) {
-            msg_ = Message.ClientList.getDefaultInstance();
+            msg_ = Message.ClientsList.getDefaultInstance();
           }
           clientListBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              Message.ClientList, Message.ClientList.Builder, Message.ClientListOrBuilder>(
-                  (Message.ClientList) msg_,
+              Message.ClientsList, Message.ClientsList.Builder, Message.ClientsListOrBuilder>(
+                  (Message.ClientsList) msg_,
                   getParentForChildren(),
                   isClean());
           msg_ = null;
@@ -2694,8 +2694,8 @@ public final class Message {
 
   }
 
-  public interface ClientListOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ClientList)
+  public interface ClientsListOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ClientsList)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -2723,18 +2723,18 @@ public final class Message {
         int index);
   }
   /**
-   * Protobuf type {@code ClientList}
+   * Protobuf type {@code ClientsList}
    */
-  public static final class ClientList extends
+  public static final class ClientsList extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:ClientList)
-      ClientListOrBuilder {
+      // @@protoc_insertion_point(message_implements:ClientsList)
+      ClientsListOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use ClientList.newBuilder() to construct.
-    private ClientList(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use ClientsList.newBuilder() to construct.
+    private ClientsList(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private ClientList() {
+    private ClientsList() {
       clients_ = java.util.Collections.emptyList();
     }
 
@@ -2742,7 +2742,7 @@ public final class Message {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new ClientList();
+      return new ClientsList();
     }
 
     @java.lang.Override
@@ -2750,7 +2750,7 @@ public final class Message {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ClientList(
+    private ClientsList(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2802,15 +2802,15 @@ public final class Message {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Message.internal_static_ClientList_descriptor;
+      return Message.internal_static_ClientsList_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Message.internal_static_ClientList_fieldAccessorTable
+      return Message.internal_static_ClientsList_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Message.ClientList.class, Message.ClientList.Builder.class);
+              Message.ClientsList.class, Message.ClientsList.Builder.class);
     }
 
     public static final int CLIENTS_FIELD_NUMBER = 1;
@@ -2893,10 +2893,10 @@ public final class Message {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof Message.ClientList)) {
+      if (!(obj instanceof Message.ClientsList)) {
         return super.equals(obj);
       }
-      Message.ClientList other = (Message.ClientList) obj;
+      Message.ClientsList other = (Message.ClientsList) obj;
 
       if (!getClientsList()
           .equals(other.getClientsList())) return false;
@@ -2920,69 +2920,69 @@ public final class Message {
       return hash;
     }
 
-    public static Message.ClientList parseFrom(
+    public static Message.ClientsList parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Message.ClientList parseFrom(
+    public static Message.ClientsList parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Message.ClientList parseFrom(
+    public static Message.ClientsList parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Message.ClientList parseFrom(
+    public static Message.ClientsList parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Message.ClientList parseFrom(byte[] data)
+    public static Message.ClientsList parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Message.ClientList parseFrom(
+    public static Message.ClientsList parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Message.ClientList parseFrom(java.io.InputStream input)
+    public static Message.ClientsList parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static Message.ClientList parseFrom(
+    public static Message.ClientsList parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static Message.ClientList parseDelimitedFrom(java.io.InputStream input)
+    public static Message.ClientsList parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static Message.ClientList parseDelimitedFrom(
+    public static Message.ClientsList parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static Message.ClientList parseFrom(
+    public static Message.ClientsList parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static Message.ClientList parseFrom(
+    public static Message.ClientsList parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2995,7 +2995,7 @@ public final class Message {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Message.ClientList prototype) {
+    public static Builder newBuilder(Message.ClientsList prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -3011,26 +3011,26 @@ public final class Message {
       return builder;
     }
     /**
-     * Protobuf type {@code ClientList}
+     * Protobuf type {@code ClientsList}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:ClientList)
-        Message.ClientListOrBuilder {
+        // @@protoc_insertion_point(builder_implements:ClientsList)
+        Message.ClientsListOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Message.internal_static_ClientList_descriptor;
+        return Message.internal_static_ClientsList_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Message.internal_static_ClientList_fieldAccessorTable
+        return Message.internal_static_ClientsList_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Message.ClientList.class, Message.ClientList.Builder.class);
+                Message.ClientsList.class, Message.ClientsList.Builder.class);
       }
 
-      // Construct using Message.ClientList.newBuilder()
+      // Construct using Message.ClientsList.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3061,17 +3061,17 @@ public final class Message {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Message.internal_static_ClientList_descriptor;
+        return Message.internal_static_ClientsList_descriptor;
       }
 
       @java.lang.Override
-      public Message.ClientList getDefaultInstanceForType() {
-        return Message.ClientList.getDefaultInstance();
+      public Message.ClientsList getDefaultInstanceForType() {
+        return Message.ClientsList.getDefaultInstance();
       }
 
       @java.lang.Override
-      public Message.ClientList build() {
-        Message.ClientList result = buildPartial();
+      public Message.ClientsList build() {
+        Message.ClientsList result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -3079,8 +3079,8 @@ public final class Message {
       }
 
       @java.lang.Override
-      public Message.ClientList buildPartial() {
-        Message.ClientList result = new Message.ClientList(this);
+      public Message.ClientsList buildPartial() {
+        Message.ClientsList result = new Message.ClientsList(this);
         int from_bitField0_ = bitField0_;
         if (clientsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
@@ -3129,16 +3129,16 @@ public final class Message {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Message.ClientList) {
-          return mergeFrom((Message.ClientList)other);
+        if (other instanceof Message.ClientsList) {
+          return mergeFrom((Message.ClientsList)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Message.ClientList other) {
-        if (other == Message.ClientList.getDefaultInstance()) return this;
+      public Builder mergeFrom(Message.ClientsList other) {
+        if (other == Message.ClientsList.getDefaultInstance()) return this;
         if (clientsBuilder_ == null) {
           if (!other.clients_.isEmpty()) {
             if (clients_.isEmpty()) {
@@ -3180,11 +3180,11 @@ public final class Message {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Message.ClientList parsedMessage = null;
+        Message.ClientsList parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Message.ClientList) e.getUnfinishedMessage();
+          parsedMessage = (Message.ClientsList) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -3447,41 +3447,41 @@ public final class Message {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:ClientList)
+      // @@protoc_insertion_point(builder_scope:ClientsList)
     }
 
-    // @@protoc_insertion_point(class_scope:ClientList)
-    private static final Message.ClientList DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:ClientsList)
+    private static final Message.ClientsList DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Message.ClientList();
+      DEFAULT_INSTANCE = new Message.ClientsList();
     }
 
-    public static Message.ClientList getDefaultInstance() {
+    public static Message.ClientsList getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<ClientList>
-        PARSER = new com.google.protobuf.AbstractParser<ClientList>() {
+    private static final com.google.protobuf.Parser<ClientsList>
+        PARSER = new com.google.protobuf.AbstractParser<ClientsList>() {
       @java.lang.Override
-      public ClientList parsePartialFrom(
+      public ClientsList parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ClientList(input, extensionRegistry);
+        return new ClientsList(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<ClientList> parser() {
+    public static com.google.protobuf.Parser<ClientsList> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ClientList> getParserForType() {
+    public com.google.protobuf.Parser<ClientsList> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public Message.ClientList getDefaultInstanceForType() {
+    public Message.ClientsList getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4066,6 +4066,12 @@ public final class Message {
      * @return The y.
      */
     int getY();
+
+    /**
+     * <code>bool response = 4;</code>
+     * @return The response.
+     */
+    boolean getResponse();
   }
   /**
    * Protobuf type {@code Move}
@@ -4125,6 +4131,11 @@ public final class Message {
             case 24: {
 
               y_ = input.readInt32();
+              break;
+            }
+            case 32: {
+
+              response_ = input.readBool();
               break;
             }
             default: {
@@ -4192,6 +4203,17 @@ public final class Message {
       return y_;
     }
 
+    public static final int RESPONSE_FIELD_NUMBER = 4;
+    private boolean response_;
+    /**
+     * <code>bool response = 4;</code>
+     * @return The response.
+     */
+    @java.lang.Override
+    public boolean getResponse() {
+      return response_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4215,6 +4237,9 @@ public final class Message {
       if (y_ != 0) {
         output.writeInt32(3, y_);
       }
+      if (response_ != false) {
+        output.writeBool(4, response_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -4235,6 +4260,10 @@ public final class Message {
       if (y_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, y_);
+      }
+      if (response_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, response_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4257,6 +4286,8 @@ public final class Message {
           != other.getX()) return false;
       if (getY()
           != other.getY()) return false;
+      if (getResponse()
+          != other.getResponse()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4274,6 +4305,9 @@ public final class Message {
       hash = (53 * hash) + getX();
       hash = (37 * hash) + Y_FIELD_NUMBER;
       hash = (53 * hash) + getY();
+      hash = (37 * hash) + RESPONSE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getResponse());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4413,6 +4447,8 @@ public final class Message {
 
         y_ = 0;
 
+        response_ = false;
+
         return this;
       }
 
@@ -4442,6 +4478,7 @@ public final class Message {
         result.from_ = from_;
         result.x_ = x_;
         result.y_ = y_;
+        result.response_ = response_;
         onBuilt();
         return result;
       }
@@ -4498,6 +4535,9 @@ public final class Message {
         }
         if (other.getY() != 0) {
           setY(other.getY());
+        }
+        if (other.getResponse() != false) {
+          setResponse(other.getResponse());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4620,6 +4660,37 @@ public final class Message {
         onChanged();
         return this;
       }
+
+      private boolean response_ ;
+      /**
+       * <code>bool response = 4;</code>
+       * @return The response.
+       */
+      @java.lang.Override
+      public boolean getResponse() {
+        return response_;
+      }
+      /**
+       * <code>bool response = 4;</code>
+       * @param value The response to set.
+       * @return This builder for chaining.
+       */
+      public Builder setResponse(boolean value) {
+        
+        response_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool response = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearResponse() {
+        
+        response_ = false;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -4689,10 +4760,10 @@ public final class Message {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Client_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ClientList_descriptor;
+    internal_static_ClientsList_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ClientList_fieldAccessorTable;
+      internal_static_ClientsList_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_GameInvitation_descriptor;
   private static final 
@@ -4712,17 +4783,17 @@ public final class Message {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\024wrappermessage.proto\"\233\001\n\016WrapperMessag" +
-      "e\022\035\n\010register\030\001 \001(\0132\t.RegisterH\000\022!\n\nclie" +
-      "ntList\030\002 \001(\0132\013.ClientListH\000\022)\n\016gameInvit" +
-      "ation\030\003 \001(\0132\017.GameInvitationH\000\022\025\n\004move\030\004" +
-      " \001(\0132\005.MoveH\000B\005\n\003msg\"*\n\010Register\022\014\n\004nick" +
-      "\030\001 \001(\t\022\020\n\010response\030\002 \001(\010\"\"\n\006Client\022\014\n\004ni" +
-      "ck\030\001 \001(\t\022\n\n\002id\030\002 \001(\005\"&\n\nClientList\022\030\n\007cl" +
-      "ients\030\001 \003(\0132\007.Client\"*\n\016GameInvitation\022\014" +
-      "\n\004from\030\001 \001(\005\022\n\n\002to\030\002 \001(\005\"*\n\004Move\022\014\n\004from" +
-      "\030\001 \001(\005\022\t\n\001x\030\002 \001(\005\022\t\n\001y\030\003 \001(\005B\tB\007Messageb" +
-      "\006proto3"
+      "\n\024wrappermessage.proto\"\234\001\n\016WrapperMessag" +
+      "e\022\035\n\010register\030\001 \001(\0132\t.RegisterH\000\022\"\n\nclie" +
+      "ntList\030\002 \001(\0132\014.ClientsListH\000\022)\n\016gameInvi" +
+      "tation\030\003 \001(\0132\017.GameInvitationH\000\022\025\n\004move\030" +
+      "\004 \001(\0132\005.MoveH\000B\005\n\003msg\"*\n\010Register\022\014\n\004nic" +
+      "k\030\001 \001(\t\022\020\n\010response\030\002 \001(\010\"\"\n\006Client\022\014\n\004n" +
+      "ick\030\001 \001(\t\022\n\n\002id\030\002 \001(\005\"\'\n\013ClientsList\022\030\n\007" +
+      "clients\030\001 \003(\0132\007.Client\"*\n\016GameInvitation" +
+      "\022\014\n\004from\030\001 \001(\005\022\n\n\002to\030\002 \001(\005\"<\n\004Move\022\014\n\004fr" +
+      "om\030\001 \001(\005\022\t\n\001x\030\002 \001(\005\022\t\n\001y\030\003 \001(\005\022\020\n\010respon" +
+      "se\030\004 \001(\010B\tB\007Messageb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4746,11 +4817,11 @@ public final class Message {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Client_descriptor,
         new java.lang.String[] { "Nick", "Id", });
-    internal_static_ClientList_descriptor =
+    internal_static_ClientsList_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_ClientList_fieldAccessorTable = new
+    internal_static_ClientsList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ClientList_descriptor,
+        internal_static_ClientsList_descriptor,
         new java.lang.String[] { "Clients", });
     internal_static_GameInvitation_descriptor =
       getDescriptor().getMessageTypes().get(4);
@@ -4763,7 +4834,7 @@ public final class Message {
     internal_static_Move_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Move_descriptor,
-        new java.lang.String[] { "From", "X", "Y", });
+        new java.lang.String[] { "From", "X", "Y", "Response", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
