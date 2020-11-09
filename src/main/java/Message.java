@@ -32,19 +32,19 @@ public final class Message {
     Message.RegisterOrBuilder getRegisterOrBuilder();
 
     /**
-     * <code>.ClientsList clientList = 2;</code>
-     * @return Whether the clientList field is set.
+     * <code>.ClientsList clientsList = 2;</code>
+     * @return Whether the clientsList field is set.
      */
-    boolean hasClientList();
+    boolean hasClientsList();
     /**
-     * <code>.ClientsList clientList = 2;</code>
-     * @return The clientList.
+     * <code>.ClientsList clientsList = 2;</code>
+     * @return The clientsList.
      */
-    Message.ClientsList getClientList();
+    Message.ClientsList getClientsList();
     /**
-     * <code>.ClientsList clientList = 2;</code>
+     * <code>.ClientsList clientsList = 2;</code>
      */
-    Message.ClientsListOrBuilder getClientListOrBuilder();
+    Message.ClientsListOrBuilder getClientsListOrBuilder();
 
     /**
      * <code>.GameInvitation gameInvitation = 3;</code>
@@ -75,6 +75,81 @@ public final class Message {
      * <code>.Move move = 4;</code>
      */
     Message.MoveOrBuilder getMoveOrBuilder();
+
+    /**
+     * <code>.PrivateMessage privateMessage = 5;</code>
+     * @return Whether the privateMessage field is set.
+     */
+    boolean hasPrivateMessage();
+    /**
+     * <code>.PrivateMessage privateMessage = 5;</code>
+     * @return The privateMessage.
+     */
+    Message.PrivateMessage getPrivateMessage();
+    /**
+     * <code>.PrivateMessage privateMessage = 5;</code>
+     */
+    Message.PrivateMessageOrBuilder getPrivateMessageOrBuilder();
+
+    /**
+     * <code>.RegisterResponse registerResponse = 6;</code>
+     * @return Whether the registerResponse field is set.
+     */
+    boolean hasRegisterResponse();
+    /**
+     * <code>.RegisterResponse registerResponse = 6;</code>
+     * @return The registerResponse.
+     */
+    Message.RegisterResponse getRegisterResponse();
+    /**
+     * <code>.RegisterResponse registerResponse = 6;</code>
+     */
+    Message.RegisterResponseOrBuilder getRegisterResponseOrBuilder();
+
+    /**
+     * <code>.GameInvitationResponse gameInvitationResponse = 7;</code>
+     * @return Whether the gameInvitationResponse field is set.
+     */
+    boolean hasGameInvitationResponse();
+    /**
+     * <code>.GameInvitationResponse gameInvitationResponse = 7;</code>
+     * @return The gameInvitationResponse.
+     */
+    Message.GameInvitationResponse getGameInvitationResponse();
+    /**
+     * <code>.GameInvitationResponse gameInvitationResponse = 7;</code>
+     */
+    Message.GameInvitationResponseOrBuilder getGameInvitationResponseOrBuilder();
+
+    /**
+     * <code>.MoveResponse moveResponse = 8;</code>
+     * @return Whether the moveResponse field is set.
+     */
+    boolean hasMoveResponse();
+    /**
+     * <code>.MoveResponse moveResponse = 8;</code>
+     * @return The moveResponse.
+     */
+    Message.MoveResponse getMoveResponse();
+    /**
+     * <code>.MoveResponse moveResponse = 8;</code>
+     */
+    Message.MoveResponseOrBuilder getMoveResponseOrBuilder();
+
+    /**
+     * <code>.GameResult gameResult = 9;</code>
+     * @return Whether the gameResult field is set.
+     */
+    boolean hasGameResult();
+    /**
+     * <code>.GameResult gameResult = 9;</code>
+     * @return The gameResult.
+     */
+    Message.GameResult getGameResult();
+    /**
+     * <code>.GameResult gameResult = 9;</code>
+     */
+    Message.GameResultOrBuilder getGameResultOrBuilder();
 
     public Message.WrapperMessage.MsgCase getMsgCase();
   }
@@ -179,6 +254,76 @@ public final class Message {
               msgCase_ = 4;
               break;
             }
+            case 42: {
+              Message.PrivateMessage.Builder subBuilder = null;
+              if (msgCase_ == 5) {
+                subBuilder = ((Message.PrivateMessage) msg_).toBuilder();
+              }
+              msg_ =
+                  input.readMessage(Message.PrivateMessage.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((Message.PrivateMessage) msg_);
+                msg_ = subBuilder.buildPartial();
+              }
+              msgCase_ = 5;
+              break;
+            }
+            case 50: {
+              Message.RegisterResponse.Builder subBuilder = null;
+              if (msgCase_ == 6) {
+                subBuilder = ((Message.RegisterResponse) msg_).toBuilder();
+              }
+              msg_ =
+                  input.readMessage(Message.RegisterResponse.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((Message.RegisterResponse) msg_);
+                msg_ = subBuilder.buildPartial();
+              }
+              msgCase_ = 6;
+              break;
+            }
+            case 58: {
+              Message.GameInvitationResponse.Builder subBuilder = null;
+              if (msgCase_ == 7) {
+                subBuilder = ((Message.GameInvitationResponse) msg_).toBuilder();
+              }
+              msg_ =
+                  input.readMessage(Message.GameInvitationResponse.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((Message.GameInvitationResponse) msg_);
+                msg_ = subBuilder.buildPartial();
+              }
+              msgCase_ = 7;
+              break;
+            }
+            case 66: {
+              Message.MoveResponse.Builder subBuilder = null;
+              if (msgCase_ == 8) {
+                subBuilder = ((Message.MoveResponse) msg_).toBuilder();
+              }
+              msg_ =
+                  input.readMessage(Message.MoveResponse.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((Message.MoveResponse) msg_);
+                msg_ = subBuilder.buildPartial();
+              }
+              msgCase_ = 8;
+              break;
+            }
+            case 74: {
+              Message.GameResult.Builder subBuilder = null;
+              if (msgCase_ == 9) {
+                subBuilder = ((Message.GameResult) msg_).toBuilder();
+              }
+              msg_ =
+                  input.readMessage(Message.GameResult.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((Message.GameResult) msg_);
+                msg_ = subBuilder.buildPartial();
+              }
+              msgCase_ = 9;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -217,9 +362,14 @@ public final class Message {
         implements com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       REGISTER(1),
-      CLIENTLIST(2),
+      CLIENTSLIST(2),
       GAMEINVITATION(3),
       MOVE(4),
+      PRIVATEMESSAGE(5),
+      REGISTERRESPONSE(6),
+      GAMEINVITATIONRESPONSE(7),
+      MOVERESPONSE(8),
+      GAMERESULT(9),
       MSG_NOT_SET(0);
       private final int value;
       private MsgCase(int value) {
@@ -238,9 +388,14 @@ public final class Message {
       public static MsgCase forNumber(int value) {
         switch (value) {
           case 1: return REGISTER;
-          case 2: return CLIENTLIST;
+          case 2: return CLIENTSLIST;
           case 3: return GAMEINVITATION;
           case 4: return MOVE;
+          case 5: return PRIVATEMESSAGE;
+          case 6: return REGISTERRESPONSE;
+          case 7: return GAMEINVITATIONRESPONSE;
+          case 8: return MOVERESPONSE;
+          case 9: return GAMERESULT;
           case 0: return MSG_NOT_SET;
           default: return null;
         }
@@ -287,31 +442,31 @@ public final class Message {
       return Message.Register.getDefaultInstance();
     }
 
-    public static final int CLIENTLIST_FIELD_NUMBER = 2;
+    public static final int CLIENTSLIST_FIELD_NUMBER = 2;
     /**
-     * <code>.ClientsList clientList = 2;</code>
-     * @return Whether the clientList field is set.
+     * <code>.ClientsList clientsList = 2;</code>
+     * @return Whether the clientsList field is set.
      */
     @java.lang.Override
-    public boolean hasClientList() {
+    public boolean hasClientsList() {
       return msgCase_ == 2;
     }
     /**
-     * <code>.ClientsList clientList = 2;</code>
-     * @return The clientList.
+     * <code>.ClientsList clientsList = 2;</code>
+     * @return The clientsList.
      */
     @java.lang.Override
-    public Message.ClientsList getClientList() {
+    public Message.ClientsList getClientsList() {
       if (msgCase_ == 2) {
          return (Message.ClientsList) msg_;
       }
       return Message.ClientsList.getDefaultInstance();
     }
     /**
-     * <code>.ClientsList clientList = 2;</code>
+     * <code>.ClientsList clientsList = 2;</code>
      */
     @java.lang.Override
-    public Message.ClientsListOrBuilder getClientListOrBuilder() {
+    public Message.ClientsListOrBuilder getClientsListOrBuilder() {
       if (msgCase_ == 2) {
          return (Message.ClientsList) msg_;
       }
@@ -380,6 +535,161 @@ public final class Message {
       return Message.Move.getDefaultInstance();
     }
 
+    public static final int PRIVATEMESSAGE_FIELD_NUMBER = 5;
+    /**
+     * <code>.PrivateMessage privateMessage = 5;</code>
+     * @return Whether the privateMessage field is set.
+     */
+    @java.lang.Override
+    public boolean hasPrivateMessage() {
+      return msgCase_ == 5;
+    }
+    /**
+     * <code>.PrivateMessage privateMessage = 5;</code>
+     * @return The privateMessage.
+     */
+    @java.lang.Override
+    public Message.PrivateMessage getPrivateMessage() {
+      if (msgCase_ == 5) {
+         return (Message.PrivateMessage) msg_;
+      }
+      return Message.PrivateMessage.getDefaultInstance();
+    }
+    /**
+     * <code>.PrivateMessage privateMessage = 5;</code>
+     */
+    @java.lang.Override
+    public Message.PrivateMessageOrBuilder getPrivateMessageOrBuilder() {
+      if (msgCase_ == 5) {
+         return (Message.PrivateMessage) msg_;
+      }
+      return Message.PrivateMessage.getDefaultInstance();
+    }
+
+    public static final int REGISTERRESPONSE_FIELD_NUMBER = 6;
+    /**
+     * <code>.RegisterResponse registerResponse = 6;</code>
+     * @return Whether the registerResponse field is set.
+     */
+    @java.lang.Override
+    public boolean hasRegisterResponse() {
+      return msgCase_ == 6;
+    }
+    /**
+     * <code>.RegisterResponse registerResponse = 6;</code>
+     * @return The registerResponse.
+     */
+    @java.lang.Override
+    public Message.RegisterResponse getRegisterResponse() {
+      if (msgCase_ == 6) {
+         return (Message.RegisterResponse) msg_;
+      }
+      return Message.RegisterResponse.getDefaultInstance();
+    }
+    /**
+     * <code>.RegisterResponse registerResponse = 6;</code>
+     */
+    @java.lang.Override
+    public Message.RegisterResponseOrBuilder getRegisterResponseOrBuilder() {
+      if (msgCase_ == 6) {
+         return (Message.RegisterResponse) msg_;
+      }
+      return Message.RegisterResponse.getDefaultInstance();
+    }
+
+    public static final int GAMEINVITATIONRESPONSE_FIELD_NUMBER = 7;
+    /**
+     * <code>.GameInvitationResponse gameInvitationResponse = 7;</code>
+     * @return Whether the gameInvitationResponse field is set.
+     */
+    @java.lang.Override
+    public boolean hasGameInvitationResponse() {
+      return msgCase_ == 7;
+    }
+    /**
+     * <code>.GameInvitationResponse gameInvitationResponse = 7;</code>
+     * @return The gameInvitationResponse.
+     */
+    @java.lang.Override
+    public Message.GameInvitationResponse getGameInvitationResponse() {
+      if (msgCase_ == 7) {
+         return (Message.GameInvitationResponse) msg_;
+      }
+      return Message.GameInvitationResponse.getDefaultInstance();
+    }
+    /**
+     * <code>.GameInvitationResponse gameInvitationResponse = 7;</code>
+     */
+    @java.lang.Override
+    public Message.GameInvitationResponseOrBuilder getGameInvitationResponseOrBuilder() {
+      if (msgCase_ == 7) {
+         return (Message.GameInvitationResponse) msg_;
+      }
+      return Message.GameInvitationResponse.getDefaultInstance();
+    }
+
+    public static final int MOVERESPONSE_FIELD_NUMBER = 8;
+    /**
+     * <code>.MoveResponse moveResponse = 8;</code>
+     * @return Whether the moveResponse field is set.
+     */
+    @java.lang.Override
+    public boolean hasMoveResponse() {
+      return msgCase_ == 8;
+    }
+    /**
+     * <code>.MoveResponse moveResponse = 8;</code>
+     * @return The moveResponse.
+     */
+    @java.lang.Override
+    public Message.MoveResponse getMoveResponse() {
+      if (msgCase_ == 8) {
+         return (Message.MoveResponse) msg_;
+      }
+      return Message.MoveResponse.getDefaultInstance();
+    }
+    /**
+     * <code>.MoveResponse moveResponse = 8;</code>
+     */
+    @java.lang.Override
+    public Message.MoveResponseOrBuilder getMoveResponseOrBuilder() {
+      if (msgCase_ == 8) {
+         return (Message.MoveResponse) msg_;
+      }
+      return Message.MoveResponse.getDefaultInstance();
+    }
+
+    public static final int GAMERESULT_FIELD_NUMBER = 9;
+    /**
+     * <code>.GameResult gameResult = 9;</code>
+     * @return Whether the gameResult field is set.
+     */
+    @java.lang.Override
+    public boolean hasGameResult() {
+      return msgCase_ == 9;
+    }
+    /**
+     * <code>.GameResult gameResult = 9;</code>
+     * @return The gameResult.
+     */
+    @java.lang.Override
+    public Message.GameResult getGameResult() {
+      if (msgCase_ == 9) {
+         return (Message.GameResult) msg_;
+      }
+      return Message.GameResult.getDefaultInstance();
+    }
+    /**
+     * <code>.GameResult gameResult = 9;</code>
+     */
+    @java.lang.Override
+    public Message.GameResultOrBuilder getGameResultOrBuilder() {
+      if (msgCase_ == 9) {
+         return (Message.GameResult) msg_;
+      }
+      return Message.GameResult.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -406,6 +716,21 @@ public final class Message {
       if (msgCase_ == 4) {
         output.writeMessage(4, (Message.Move) msg_);
       }
+      if (msgCase_ == 5) {
+        output.writeMessage(5, (Message.PrivateMessage) msg_);
+      }
+      if (msgCase_ == 6) {
+        output.writeMessage(6, (Message.RegisterResponse) msg_);
+      }
+      if (msgCase_ == 7) {
+        output.writeMessage(7, (Message.GameInvitationResponse) msg_);
+      }
+      if (msgCase_ == 8) {
+        output.writeMessage(8, (Message.MoveResponse) msg_);
+      }
+      if (msgCase_ == 9) {
+        output.writeMessage(9, (Message.GameResult) msg_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -431,6 +756,26 @@ public final class Message {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, (Message.Move) msg_);
       }
+      if (msgCase_ == 5) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, (Message.PrivateMessage) msg_);
+      }
+      if (msgCase_ == 6) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, (Message.RegisterResponse) msg_);
+      }
+      if (msgCase_ == 7) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, (Message.GameInvitationResponse) msg_);
+      }
+      if (msgCase_ == 8) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, (Message.MoveResponse) msg_);
+      }
+      if (msgCase_ == 9) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, (Message.GameResult) msg_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -453,8 +798,8 @@ public final class Message {
               .equals(other.getRegister())) return false;
           break;
         case 2:
-          if (!getClientList()
-              .equals(other.getClientList())) return false;
+          if (!getClientsList()
+              .equals(other.getClientsList())) return false;
           break;
         case 3:
           if (!getGameInvitation()
@@ -463,6 +808,26 @@ public final class Message {
         case 4:
           if (!getMove()
               .equals(other.getMove())) return false;
+          break;
+        case 5:
+          if (!getPrivateMessage()
+              .equals(other.getPrivateMessage())) return false;
+          break;
+        case 6:
+          if (!getRegisterResponse()
+              .equals(other.getRegisterResponse())) return false;
+          break;
+        case 7:
+          if (!getGameInvitationResponse()
+              .equals(other.getGameInvitationResponse())) return false;
+          break;
+        case 8:
+          if (!getMoveResponse()
+              .equals(other.getMoveResponse())) return false;
+          break;
+        case 9:
+          if (!getGameResult()
+              .equals(other.getGameResult())) return false;
           break;
         case 0:
         default:
@@ -484,8 +849,8 @@ public final class Message {
           hash = (53 * hash) + getRegister().hashCode();
           break;
         case 2:
-          hash = (37 * hash) + CLIENTLIST_FIELD_NUMBER;
-          hash = (53 * hash) + getClientList().hashCode();
+          hash = (37 * hash) + CLIENTSLIST_FIELD_NUMBER;
+          hash = (53 * hash) + getClientsList().hashCode();
           break;
         case 3:
           hash = (37 * hash) + GAMEINVITATION_FIELD_NUMBER;
@@ -494,6 +859,26 @@ public final class Message {
         case 4:
           hash = (37 * hash) + MOVE_FIELD_NUMBER;
           hash = (53 * hash) + getMove().hashCode();
+          break;
+        case 5:
+          hash = (37 * hash) + PRIVATEMESSAGE_FIELD_NUMBER;
+          hash = (53 * hash) + getPrivateMessage().hashCode();
+          break;
+        case 6:
+          hash = (37 * hash) + REGISTERRESPONSE_FIELD_NUMBER;
+          hash = (53 * hash) + getRegisterResponse().hashCode();
+          break;
+        case 7:
+          hash = (37 * hash) + GAMEINVITATIONRESPONSE_FIELD_NUMBER;
+          hash = (53 * hash) + getGameInvitationResponse().hashCode();
+          break;
+        case 8:
+          hash = (37 * hash) + MOVERESPONSE_FIELD_NUMBER;
+          hash = (53 * hash) + getMoveResponse().hashCode();
+          break;
+        case 9:
+          hash = (37 * hash) + GAMERESULT_FIELD_NUMBER;
+          hash = (53 * hash) + getGameResult().hashCode();
           break;
         case 0:
         default:
@@ -667,10 +1052,10 @@ public final class Message {
           }
         }
         if (msgCase_ == 2) {
-          if (clientListBuilder_ == null) {
+          if (clientsListBuilder_ == null) {
             result.msg_ = msg_;
           } else {
-            result.msg_ = clientListBuilder_.build();
+            result.msg_ = clientsListBuilder_.build();
           }
         }
         if (msgCase_ == 3) {
@@ -685,6 +1070,41 @@ public final class Message {
             result.msg_ = msg_;
           } else {
             result.msg_ = moveBuilder_.build();
+          }
+        }
+        if (msgCase_ == 5) {
+          if (privateMessageBuilder_ == null) {
+            result.msg_ = msg_;
+          } else {
+            result.msg_ = privateMessageBuilder_.build();
+          }
+        }
+        if (msgCase_ == 6) {
+          if (registerResponseBuilder_ == null) {
+            result.msg_ = msg_;
+          } else {
+            result.msg_ = registerResponseBuilder_.build();
+          }
+        }
+        if (msgCase_ == 7) {
+          if (gameInvitationResponseBuilder_ == null) {
+            result.msg_ = msg_;
+          } else {
+            result.msg_ = gameInvitationResponseBuilder_.build();
+          }
+        }
+        if (msgCase_ == 8) {
+          if (moveResponseBuilder_ == null) {
+            result.msg_ = msg_;
+          } else {
+            result.msg_ = moveResponseBuilder_.build();
+          }
+        }
+        if (msgCase_ == 9) {
+          if (gameResultBuilder_ == null) {
+            result.msg_ = msg_;
+          } else {
+            result.msg_ = gameResultBuilder_.build();
           }
         }
         result.msgCase_ = msgCase_;
@@ -741,8 +1161,8 @@ public final class Message {
             mergeRegister(other.getRegister());
             break;
           }
-          case CLIENTLIST: {
-            mergeClientList(other.getClientList());
+          case CLIENTSLIST: {
+            mergeClientsList(other.getClientsList());
             break;
           }
           case GAMEINVITATION: {
@@ -751,6 +1171,26 @@ public final class Message {
           }
           case MOVE: {
             mergeMove(other.getMove());
+            break;
+          }
+          case PRIVATEMESSAGE: {
+            mergePrivateMessage(other.getPrivateMessage());
+            break;
+          }
+          case REGISTERRESPONSE: {
+            mergeRegisterResponse(other.getRegisterResponse());
+            break;
+          }
+          case GAMEINVITATIONRESPONSE: {
+            mergeGameInvitationResponse(other.getGameInvitationResponse());
+            break;
+          }
+          case MOVERESPONSE: {
+            mergeMoveResponse(other.getMoveResponse());
+            break;
+          }
+          case GAMERESULT: {
+            mergeGameResult(other.getGameResult());
             break;
           }
           case MSG_NOT_SET: {
@@ -943,68 +1383,68 @@ public final class Message {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          Message.ClientsList, Message.ClientsList.Builder, Message.ClientsListOrBuilder> clientListBuilder_;
+          Message.ClientsList, Message.ClientsList.Builder, Message.ClientsListOrBuilder> clientsListBuilder_;
       /**
-       * <code>.ClientsList clientList = 2;</code>
-       * @return Whether the clientList field is set.
+       * <code>.ClientsList clientsList = 2;</code>
+       * @return Whether the clientsList field is set.
        */
       @java.lang.Override
-      public boolean hasClientList() {
+      public boolean hasClientsList() {
         return msgCase_ == 2;
       }
       /**
-       * <code>.ClientsList clientList = 2;</code>
-       * @return The clientList.
+       * <code>.ClientsList clientsList = 2;</code>
+       * @return The clientsList.
        */
       @java.lang.Override
-      public Message.ClientsList getClientList() {
-        if (clientListBuilder_ == null) {
+      public Message.ClientsList getClientsList() {
+        if (clientsListBuilder_ == null) {
           if (msgCase_ == 2) {
             return (Message.ClientsList) msg_;
           }
           return Message.ClientsList.getDefaultInstance();
         } else {
           if (msgCase_ == 2) {
-            return clientListBuilder_.getMessage();
+            return clientsListBuilder_.getMessage();
           }
           return Message.ClientsList.getDefaultInstance();
         }
       }
       /**
-       * <code>.ClientsList clientList = 2;</code>
+       * <code>.ClientsList clientsList = 2;</code>
        */
-      public Builder setClientList(Message.ClientsList value) {
-        if (clientListBuilder_ == null) {
+      public Builder setClientsList(Message.ClientsList value) {
+        if (clientsListBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
           msg_ = value;
           onChanged();
         } else {
-          clientListBuilder_.setMessage(value);
+          clientsListBuilder_.setMessage(value);
         }
         msgCase_ = 2;
         return this;
       }
       /**
-       * <code>.ClientsList clientList = 2;</code>
+       * <code>.ClientsList clientsList = 2;</code>
        */
-      public Builder setClientList(
+      public Builder setClientsList(
           Message.ClientsList.Builder builderForValue) {
-        if (clientListBuilder_ == null) {
+        if (clientsListBuilder_ == null) {
           msg_ = builderForValue.build();
           onChanged();
         } else {
-          clientListBuilder_.setMessage(builderForValue.build());
+          clientsListBuilder_.setMessage(builderForValue.build());
         }
         msgCase_ = 2;
         return this;
       }
       /**
-       * <code>.ClientsList clientList = 2;</code>
+       * <code>.ClientsList clientsList = 2;</code>
        */
-      public Builder mergeClientList(Message.ClientsList value) {
-        if (clientListBuilder_ == null) {
+      public Builder mergeClientsList(Message.ClientsList value) {
+        if (clientsListBuilder_ == null) {
           if (msgCase_ == 2 &&
               msg_ != Message.ClientsList.getDefaultInstance()) {
             msg_ = Message.ClientsList.newBuilder((Message.ClientsList) msg_)
@@ -1015,18 +1455,18 @@ public final class Message {
           onChanged();
         } else {
           if (msgCase_ == 2) {
-            clientListBuilder_.mergeFrom(value);
+            clientsListBuilder_.mergeFrom(value);
           }
-          clientListBuilder_.setMessage(value);
+          clientsListBuilder_.setMessage(value);
         }
         msgCase_ = 2;
         return this;
       }
       /**
-       * <code>.ClientsList clientList = 2;</code>
+       * <code>.ClientsList clientsList = 2;</code>
        */
-      public Builder clearClientList() {
-        if (clientListBuilder_ == null) {
+      public Builder clearClientsList() {
+        if (clientsListBuilder_ == null) {
           if (msgCase_ == 2) {
             msgCase_ = 0;
             msg_ = null;
@@ -1037,23 +1477,23 @@ public final class Message {
             msgCase_ = 0;
             msg_ = null;
           }
-          clientListBuilder_.clear();
+          clientsListBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>.ClientsList clientList = 2;</code>
+       * <code>.ClientsList clientsList = 2;</code>
        */
-      public Message.ClientsList.Builder getClientListBuilder() {
-        return getClientListFieldBuilder().getBuilder();
+      public Message.ClientsList.Builder getClientsListBuilder() {
+        return getClientsListFieldBuilder().getBuilder();
       }
       /**
-       * <code>.ClientsList clientList = 2;</code>
+       * <code>.ClientsList clientsList = 2;</code>
        */
       @java.lang.Override
-      public Message.ClientsListOrBuilder getClientListOrBuilder() {
-        if ((msgCase_ == 2) && (clientListBuilder_ != null)) {
-          return clientListBuilder_.getMessageOrBuilder();
+      public Message.ClientsListOrBuilder getClientsListOrBuilder() {
+        if ((msgCase_ == 2) && (clientsListBuilder_ != null)) {
+          return clientsListBuilder_.getMessageOrBuilder();
         } else {
           if (msgCase_ == 2) {
             return (Message.ClientsList) msg_;
@@ -1062,16 +1502,16 @@ public final class Message {
         }
       }
       /**
-       * <code>.ClientsList clientList = 2;</code>
+       * <code>.ClientsList clientsList = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           Message.ClientsList, Message.ClientsList.Builder, Message.ClientsListOrBuilder> 
-          getClientListFieldBuilder() {
-        if (clientListBuilder_ == null) {
+          getClientsListFieldBuilder() {
+        if (clientsListBuilder_ == null) {
           if (!(msgCase_ == 2)) {
             msg_ = Message.ClientsList.getDefaultInstance();
           }
-          clientListBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+          clientsListBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               Message.ClientsList, Message.ClientsList.Builder, Message.ClientsListOrBuilder>(
                   (Message.ClientsList) msg_,
                   getParentForChildren(),
@@ -1080,7 +1520,7 @@ public final class Message {
         }
         msgCase_ = 2;
         onChanged();;
-        return clientListBuilder_;
+        return clientsListBuilder_;
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1364,6 +1804,711 @@ public final class Message {
         onChanged();;
         return moveBuilder_;
       }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          Message.PrivateMessage, Message.PrivateMessage.Builder, Message.PrivateMessageOrBuilder> privateMessageBuilder_;
+      /**
+       * <code>.PrivateMessage privateMessage = 5;</code>
+       * @return Whether the privateMessage field is set.
+       */
+      @java.lang.Override
+      public boolean hasPrivateMessage() {
+        return msgCase_ == 5;
+      }
+      /**
+       * <code>.PrivateMessage privateMessage = 5;</code>
+       * @return The privateMessage.
+       */
+      @java.lang.Override
+      public Message.PrivateMessage getPrivateMessage() {
+        if (privateMessageBuilder_ == null) {
+          if (msgCase_ == 5) {
+            return (Message.PrivateMessage) msg_;
+          }
+          return Message.PrivateMessage.getDefaultInstance();
+        } else {
+          if (msgCase_ == 5) {
+            return privateMessageBuilder_.getMessage();
+          }
+          return Message.PrivateMessage.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.PrivateMessage privateMessage = 5;</code>
+       */
+      public Builder setPrivateMessage(Message.PrivateMessage value) {
+        if (privateMessageBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          msg_ = value;
+          onChanged();
+        } else {
+          privateMessageBuilder_.setMessage(value);
+        }
+        msgCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.PrivateMessage privateMessage = 5;</code>
+       */
+      public Builder setPrivateMessage(
+          Message.PrivateMessage.Builder builderForValue) {
+        if (privateMessageBuilder_ == null) {
+          msg_ = builderForValue.build();
+          onChanged();
+        } else {
+          privateMessageBuilder_.setMessage(builderForValue.build());
+        }
+        msgCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.PrivateMessage privateMessage = 5;</code>
+       */
+      public Builder mergePrivateMessage(Message.PrivateMessage value) {
+        if (privateMessageBuilder_ == null) {
+          if (msgCase_ == 5 &&
+              msg_ != Message.PrivateMessage.getDefaultInstance()) {
+            msg_ = Message.PrivateMessage.newBuilder((Message.PrivateMessage) msg_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            msg_ = value;
+          }
+          onChanged();
+        } else {
+          if (msgCase_ == 5) {
+            privateMessageBuilder_.mergeFrom(value);
+          }
+          privateMessageBuilder_.setMessage(value);
+        }
+        msgCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.PrivateMessage privateMessage = 5;</code>
+       */
+      public Builder clearPrivateMessage() {
+        if (privateMessageBuilder_ == null) {
+          if (msgCase_ == 5) {
+            msgCase_ = 0;
+            msg_ = null;
+            onChanged();
+          }
+        } else {
+          if (msgCase_ == 5) {
+            msgCase_ = 0;
+            msg_ = null;
+          }
+          privateMessageBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.PrivateMessage privateMessage = 5;</code>
+       */
+      public Message.PrivateMessage.Builder getPrivateMessageBuilder() {
+        return getPrivateMessageFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.PrivateMessage privateMessage = 5;</code>
+       */
+      @java.lang.Override
+      public Message.PrivateMessageOrBuilder getPrivateMessageOrBuilder() {
+        if ((msgCase_ == 5) && (privateMessageBuilder_ != null)) {
+          return privateMessageBuilder_.getMessageOrBuilder();
+        } else {
+          if (msgCase_ == 5) {
+            return (Message.PrivateMessage) msg_;
+          }
+          return Message.PrivateMessage.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.PrivateMessage privateMessage = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          Message.PrivateMessage, Message.PrivateMessage.Builder, Message.PrivateMessageOrBuilder> 
+          getPrivateMessageFieldBuilder() {
+        if (privateMessageBuilder_ == null) {
+          if (!(msgCase_ == 5)) {
+            msg_ = Message.PrivateMessage.getDefaultInstance();
+          }
+          privateMessageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              Message.PrivateMessage, Message.PrivateMessage.Builder, Message.PrivateMessageOrBuilder>(
+                  (Message.PrivateMessage) msg_,
+                  getParentForChildren(),
+                  isClean());
+          msg_ = null;
+        }
+        msgCase_ = 5;
+        onChanged();;
+        return privateMessageBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          Message.RegisterResponse, Message.RegisterResponse.Builder, Message.RegisterResponseOrBuilder> registerResponseBuilder_;
+      /**
+       * <code>.RegisterResponse registerResponse = 6;</code>
+       * @return Whether the registerResponse field is set.
+       */
+      @java.lang.Override
+      public boolean hasRegisterResponse() {
+        return msgCase_ == 6;
+      }
+      /**
+       * <code>.RegisterResponse registerResponse = 6;</code>
+       * @return The registerResponse.
+       */
+      @java.lang.Override
+      public Message.RegisterResponse getRegisterResponse() {
+        if (registerResponseBuilder_ == null) {
+          if (msgCase_ == 6) {
+            return (Message.RegisterResponse) msg_;
+          }
+          return Message.RegisterResponse.getDefaultInstance();
+        } else {
+          if (msgCase_ == 6) {
+            return registerResponseBuilder_.getMessage();
+          }
+          return Message.RegisterResponse.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.RegisterResponse registerResponse = 6;</code>
+       */
+      public Builder setRegisterResponse(Message.RegisterResponse value) {
+        if (registerResponseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          msg_ = value;
+          onChanged();
+        } else {
+          registerResponseBuilder_.setMessage(value);
+        }
+        msgCase_ = 6;
+        return this;
+      }
+      /**
+       * <code>.RegisterResponse registerResponse = 6;</code>
+       */
+      public Builder setRegisterResponse(
+          Message.RegisterResponse.Builder builderForValue) {
+        if (registerResponseBuilder_ == null) {
+          msg_ = builderForValue.build();
+          onChanged();
+        } else {
+          registerResponseBuilder_.setMessage(builderForValue.build());
+        }
+        msgCase_ = 6;
+        return this;
+      }
+      /**
+       * <code>.RegisterResponse registerResponse = 6;</code>
+       */
+      public Builder mergeRegisterResponse(Message.RegisterResponse value) {
+        if (registerResponseBuilder_ == null) {
+          if (msgCase_ == 6 &&
+              msg_ != Message.RegisterResponse.getDefaultInstance()) {
+            msg_ = Message.RegisterResponse.newBuilder((Message.RegisterResponse) msg_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            msg_ = value;
+          }
+          onChanged();
+        } else {
+          if (msgCase_ == 6) {
+            registerResponseBuilder_.mergeFrom(value);
+          }
+          registerResponseBuilder_.setMessage(value);
+        }
+        msgCase_ = 6;
+        return this;
+      }
+      /**
+       * <code>.RegisterResponse registerResponse = 6;</code>
+       */
+      public Builder clearRegisterResponse() {
+        if (registerResponseBuilder_ == null) {
+          if (msgCase_ == 6) {
+            msgCase_ = 0;
+            msg_ = null;
+            onChanged();
+          }
+        } else {
+          if (msgCase_ == 6) {
+            msgCase_ = 0;
+            msg_ = null;
+          }
+          registerResponseBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.RegisterResponse registerResponse = 6;</code>
+       */
+      public Message.RegisterResponse.Builder getRegisterResponseBuilder() {
+        return getRegisterResponseFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.RegisterResponse registerResponse = 6;</code>
+       */
+      @java.lang.Override
+      public Message.RegisterResponseOrBuilder getRegisterResponseOrBuilder() {
+        if ((msgCase_ == 6) && (registerResponseBuilder_ != null)) {
+          return registerResponseBuilder_.getMessageOrBuilder();
+        } else {
+          if (msgCase_ == 6) {
+            return (Message.RegisterResponse) msg_;
+          }
+          return Message.RegisterResponse.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.RegisterResponse registerResponse = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          Message.RegisterResponse, Message.RegisterResponse.Builder, Message.RegisterResponseOrBuilder> 
+          getRegisterResponseFieldBuilder() {
+        if (registerResponseBuilder_ == null) {
+          if (!(msgCase_ == 6)) {
+            msg_ = Message.RegisterResponse.getDefaultInstance();
+          }
+          registerResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              Message.RegisterResponse, Message.RegisterResponse.Builder, Message.RegisterResponseOrBuilder>(
+                  (Message.RegisterResponse) msg_,
+                  getParentForChildren(),
+                  isClean());
+          msg_ = null;
+        }
+        msgCase_ = 6;
+        onChanged();;
+        return registerResponseBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          Message.GameInvitationResponse, Message.GameInvitationResponse.Builder, Message.GameInvitationResponseOrBuilder> gameInvitationResponseBuilder_;
+      /**
+       * <code>.GameInvitationResponse gameInvitationResponse = 7;</code>
+       * @return Whether the gameInvitationResponse field is set.
+       */
+      @java.lang.Override
+      public boolean hasGameInvitationResponse() {
+        return msgCase_ == 7;
+      }
+      /**
+       * <code>.GameInvitationResponse gameInvitationResponse = 7;</code>
+       * @return The gameInvitationResponse.
+       */
+      @java.lang.Override
+      public Message.GameInvitationResponse getGameInvitationResponse() {
+        if (gameInvitationResponseBuilder_ == null) {
+          if (msgCase_ == 7) {
+            return (Message.GameInvitationResponse) msg_;
+          }
+          return Message.GameInvitationResponse.getDefaultInstance();
+        } else {
+          if (msgCase_ == 7) {
+            return gameInvitationResponseBuilder_.getMessage();
+          }
+          return Message.GameInvitationResponse.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.GameInvitationResponse gameInvitationResponse = 7;</code>
+       */
+      public Builder setGameInvitationResponse(Message.GameInvitationResponse value) {
+        if (gameInvitationResponseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          msg_ = value;
+          onChanged();
+        } else {
+          gameInvitationResponseBuilder_.setMessage(value);
+        }
+        msgCase_ = 7;
+        return this;
+      }
+      /**
+       * <code>.GameInvitationResponse gameInvitationResponse = 7;</code>
+       */
+      public Builder setGameInvitationResponse(
+          Message.GameInvitationResponse.Builder builderForValue) {
+        if (gameInvitationResponseBuilder_ == null) {
+          msg_ = builderForValue.build();
+          onChanged();
+        } else {
+          gameInvitationResponseBuilder_.setMessage(builderForValue.build());
+        }
+        msgCase_ = 7;
+        return this;
+      }
+      /**
+       * <code>.GameInvitationResponse gameInvitationResponse = 7;</code>
+       */
+      public Builder mergeGameInvitationResponse(Message.GameInvitationResponse value) {
+        if (gameInvitationResponseBuilder_ == null) {
+          if (msgCase_ == 7 &&
+              msg_ != Message.GameInvitationResponse.getDefaultInstance()) {
+            msg_ = Message.GameInvitationResponse.newBuilder((Message.GameInvitationResponse) msg_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            msg_ = value;
+          }
+          onChanged();
+        } else {
+          if (msgCase_ == 7) {
+            gameInvitationResponseBuilder_.mergeFrom(value);
+          }
+          gameInvitationResponseBuilder_.setMessage(value);
+        }
+        msgCase_ = 7;
+        return this;
+      }
+      /**
+       * <code>.GameInvitationResponse gameInvitationResponse = 7;</code>
+       */
+      public Builder clearGameInvitationResponse() {
+        if (gameInvitationResponseBuilder_ == null) {
+          if (msgCase_ == 7) {
+            msgCase_ = 0;
+            msg_ = null;
+            onChanged();
+          }
+        } else {
+          if (msgCase_ == 7) {
+            msgCase_ = 0;
+            msg_ = null;
+          }
+          gameInvitationResponseBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.GameInvitationResponse gameInvitationResponse = 7;</code>
+       */
+      public Message.GameInvitationResponse.Builder getGameInvitationResponseBuilder() {
+        return getGameInvitationResponseFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.GameInvitationResponse gameInvitationResponse = 7;</code>
+       */
+      @java.lang.Override
+      public Message.GameInvitationResponseOrBuilder getGameInvitationResponseOrBuilder() {
+        if ((msgCase_ == 7) && (gameInvitationResponseBuilder_ != null)) {
+          return gameInvitationResponseBuilder_.getMessageOrBuilder();
+        } else {
+          if (msgCase_ == 7) {
+            return (Message.GameInvitationResponse) msg_;
+          }
+          return Message.GameInvitationResponse.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.GameInvitationResponse gameInvitationResponse = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          Message.GameInvitationResponse, Message.GameInvitationResponse.Builder, Message.GameInvitationResponseOrBuilder> 
+          getGameInvitationResponseFieldBuilder() {
+        if (gameInvitationResponseBuilder_ == null) {
+          if (!(msgCase_ == 7)) {
+            msg_ = Message.GameInvitationResponse.getDefaultInstance();
+          }
+          gameInvitationResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              Message.GameInvitationResponse, Message.GameInvitationResponse.Builder, Message.GameInvitationResponseOrBuilder>(
+                  (Message.GameInvitationResponse) msg_,
+                  getParentForChildren(),
+                  isClean());
+          msg_ = null;
+        }
+        msgCase_ = 7;
+        onChanged();;
+        return gameInvitationResponseBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          Message.MoveResponse, Message.MoveResponse.Builder, Message.MoveResponseOrBuilder> moveResponseBuilder_;
+      /**
+       * <code>.MoveResponse moveResponse = 8;</code>
+       * @return Whether the moveResponse field is set.
+       */
+      @java.lang.Override
+      public boolean hasMoveResponse() {
+        return msgCase_ == 8;
+      }
+      /**
+       * <code>.MoveResponse moveResponse = 8;</code>
+       * @return The moveResponse.
+       */
+      @java.lang.Override
+      public Message.MoveResponse getMoveResponse() {
+        if (moveResponseBuilder_ == null) {
+          if (msgCase_ == 8) {
+            return (Message.MoveResponse) msg_;
+          }
+          return Message.MoveResponse.getDefaultInstance();
+        } else {
+          if (msgCase_ == 8) {
+            return moveResponseBuilder_.getMessage();
+          }
+          return Message.MoveResponse.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.MoveResponse moveResponse = 8;</code>
+       */
+      public Builder setMoveResponse(Message.MoveResponse value) {
+        if (moveResponseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          msg_ = value;
+          onChanged();
+        } else {
+          moveResponseBuilder_.setMessage(value);
+        }
+        msgCase_ = 8;
+        return this;
+      }
+      /**
+       * <code>.MoveResponse moveResponse = 8;</code>
+       */
+      public Builder setMoveResponse(
+          Message.MoveResponse.Builder builderForValue) {
+        if (moveResponseBuilder_ == null) {
+          msg_ = builderForValue.build();
+          onChanged();
+        } else {
+          moveResponseBuilder_.setMessage(builderForValue.build());
+        }
+        msgCase_ = 8;
+        return this;
+      }
+      /**
+       * <code>.MoveResponse moveResponse = 8;</code>
+       */
+      public Builder mergeMoveResponse(Message.MoveResponse value) {
+        if (moveResponseBuilder_ == null) {
+          if (msgCase_ == 8 &&
+              msg_ != Message.MoveResponse.getDefaultInstance()) {
+            msg_ = Message.MoveResponse.newBuilder((Message.MoveResponse) msg_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            msg_ = value;
+          }
+          onChanged();
+        } else {
+          if (msgCase_ == 8) {
+            moveResponseBuilder_.mergeFrom(value);
+          }
+          moveResponseBuilder_.setMessage(value);
+        }
+        msgCase_ = 8;
+        return this;
+      }
+      /**
+       * <code>.MoveResponse moveResponse = 8;</code>
+       */
+      public Builder clearMoveResponse() {
+        if (moveResponseBuilder_ == null) {
+          if (msgCase_ == 8) {
+            msgCase_ = 0;
+            msg_ = null;
+            onChanged();
+          }
+        } else {
+          if (msgCase_ == 8) {
+            msgCase_ = 0;
+            msg_ = null;
+          }
+          moveResponseBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.MoveResponse moveResponse = 8;</code>
+       */
+      public Message.MoveResponse.Builder getMoveResponseBuilder() {
+        return getMoveResponseFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.MoveResponse moveResponse = 8;</code>
+       */
+      @java.lang.Override
+      public Message.MoveResponseOrBuilder getMoveResponseOrBuilder() {
+        if ((msgCase_ == 8) && (moveResponseBuilder_ != null)) {
+          return moveResponseBuilder_.getMessageOrBuilder();
+        } else {
+          if (msgCase_ == 8) {
+            return (Message.MoveResponse) msg_;
+          }
+          return Message.MoveResponse.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.MoveResponse moveResponse = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          Message.MoveResponse, Message.MoveResponse.Builder, Message.MoveResponseOrBuilder> 
+          getMoveResponseFieldBuilder() {
+        if (moveResponseBuilder_ == null) {
+          if (!(msgCase_ == 8)) {
+            msg_ = Message.MoveResponse.getDefaultInstance();
+          }
+          moveResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              Message.MoveResponse, Message.MoveResponse.Builder, Message.MoveResponseOrBuilder>(
+                  (Message.MoveResponse) msg_,
+                  getParentForChildren(),
+                  isClean());
+          msg_ = null;
+        }
+        msgCase_ = 8;
+        onChanged();;
+        return moveResponseBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          Message.GameResult, Message.GameResult.Builder, Message.GameResultOrBuilder> gameResultBuilder_;
+      /**
+       * <code>.GameResult gameResult = 9;</code>
+       * @return Whether the gameResult field is set.
+       */
+      @java.lang.Override
+      public boolean hasGameResult() {
+        return msgCase_ == 9;
+      }
+      /**
+       * <code>.GameResult gameResult = 9;</code>
+       * @return The gameResult.
+       */
+      @java.lang.Override
+      public Message.GameResult getGameResult() {
+        if (gameResultBuilder_ == null) {
+          if (msgCase_ == 9) {
+            return (Message.GameResult) msg_;
+          }
+          return Message.GameResult.getDefaultInstance();
+        } else {
+          if (msgCase_ == 9) {
+            return gameResultBuilder_.getMessage();
+          }
+          return Message.GameResult.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.GameResult gameResult = 9;</code>
+       */
+      public Builder setGameResult(Message.GameResult value) {
+        if (gameResultBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          msg_ = value;
+          onChanged();
+        } else {
+          gameResultBuilder_.setMessage(value);
+        }
+        msgCase_ = 9;
+        return this;
+      }
+      /**
+       * <code>.GameResult gameResult = 9;</code>
+       */
+      public Builder setGameResult(
+          Message.GameResult.Builder builderForValue) {
+        if (gameResultBuilder_ == null) {
+          msg_ = builderForValue.build();
+          onChanged();
+        } else {
+          gameResultBuilder_.setMessage(builderForValue.build());
+        }
+        msgCase_ = 9;
+        return this;
+      }
+      /**
+       * <code>.GameResult gameResult = 9;</code>
+       */
+      public Builder mergeGameResult(Message.GameResult value) {
+        if (gameResultBuilder_ == null) {
+          if (msgCase_ == 9 &&
+              msg_ != Message.GameResult.getDefaultInstance()) {
+            msg_ = Message.GameResult.newBuilder((Message.GameResult) msg_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            msg_ = value;
+          }
+          onChanged();
+        } else {
+          if (msgCase_ == 9) {
+            gameResultBuilder_.mergeFrom(value);
+          }
+          gameResultBuilder_.setMessage(value);
+        }
+        msgCase_ = 9;
+        return this;
+      }
+      /**
+       * <code>.GameResult gameResult = 9;</code>
+       */
+      public Builder clearGameResult() {
+        if (gameResultBuilder_ == null) {
+          if (msgCase_ == 9) {
+            msgCase_ = 0;
+            msg_ = null;
+            onChanged();
+          }
+        } else {
+          if (msgCase_ == 9) {
+            msgCase_ = 0;
+            msg_ = null;
+          }
+          gameResultBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.GameResult gameResult = 9;</code>
+       */
+      public Message.GameResult.Builder getGameResultBuilder() {
+        return getGameResultFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.GameResult gameResult = 9;</code>
+       */
+      @java.lang.Override
+      public Message.GameResultOrBuilder getGameResultOrBuilder() {
+        if ((msgCase_ == 9) && (gameResultBuilder_ != null)) {
+          return gameResultBuilder_.getMessageOrBuilder();
+        } else {
+          if (msgCase_ == 9) {
+            return (Message.GameResult) msg_;
+          }
+          return Message.GameResult.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.GameResult gameResult = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          Message.GameResult, Message.GameResult.Builder, Message.GameResultOrBuilder> 
+          getGameResultFieldBuilder() {
+        if (gameResultBuilder_ == null) {
+          if (!(msgCase_ == 9)) {
+            msg_ = Message.GameResult.getDefaultInstance();
+          }
+          gameResultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              Message.GameResult, Message.GameResult.Builder, Message.GameResultOrBuilder>(
+                  (Message.GameResult) msg_,
+                  getParentForChildren(),
+                  isClean());
+          msg_ = null;
+        }
+        msgCase_ = 9;
+        onChanged();;
+        return gameResultBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1432,12 +2577,6 @@ public final class Message {
      */
     com.google.protobuf.ByteString
         getNickBytes();
-
-    /**
-     * <code>bool response = 2;</code>
-     * @return The response.
-     */
-    boolean getResponse();
   }
   /**
    * Protobuf type {@code Register}
@@ -1489,11 +2628,6 @@ public final class Message {
               java.lang.String s = input.readStringRequireUtf8();
 
               nick_ = s;
-              break;
-            }
-            case 16: {
-
-              response_ = input.readBool();
               break;
             }
             default: {
@@ -1566,17 +2700,6 @@ public final class Message {
       }
     }
 
-    public static final int RESPONSE_FIELD_NUMBER = 2;
-    private boolean response_;
-    /**
-     * <code>bool response = 2;</code>
-     * @return The response.
-     */
-    @java.lang.Override
-    public boolean getResponse() {
-      return response_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1594,9 +2717,6 @@ public final class Message {
       if (!getNickBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, nick_);
       }
-      if (response_ != false) {
-        output.writeBool(2, response_);
-      }
       unknownFields.writeTo(output);
     }
 
@@ -1608,10 +2728,6 @@ public final class Message {
       size = 0;
       if (!getNickBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, nick_);
-      }
-      if (response_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(2, response_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1630,8 +2746,6 @@ public final class Message {
 
       if (!getNick()
           .equals(other.getNick())) return false;
-      if (getResponse()
-          != other.getResponse()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1645,9 +2759,6 @@ public final class Message {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NICK_FIELD_NUMBER;
       hash = (53 * hash) + getNick().hashCode();
-      hash = (37 * hash) + RESPONSE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getResponse());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1783,8 +2894,6 @@ public final class Message {
         super.clear();
         nick_ = "";
 
-        response_ = false;
-
         return this;
       }
 
@@ -1812,7 +2921,6 @@ public final class Message {
       public Message.Register buildPartial() {
         Message.Register result = new Message.Register(this);
         result.nick_ = nick_;
-        result.response_ = response_;
         onBuilt();
         return result;
       }
@@ -1864,9 +2972,6 @@ public final class Message {
         if (!other.getNick().isEmpty()) {
           nick_ = other.nick_;
           onChanged();
-        }
-        if (other.getResponse() != false) {
-          setResponse(other.getResponse());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1972,37 +3077,6 @@ public final class Message {
         onChanged();
         return this;
       }
-
-      private boolean response_ ;
-      /**
-       * <code>bool response = 2;</code>
-       * @return The response.
-       */
-      @java.lang.Override
-      public boolean getResponse() {
-        return response_;
-      }
-      /**
-       * <code>bool response = 2;</code>
-       * @param value The response to set.
-       * @return This builder for chaining.
-       */
-      public Builder setResponse(boolean value) {
-        
-        response_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bool response = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearResponse() {
-        
-        response_ = false;
-        onChanged();
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2051,6 +3125,495 @@ public final class Message {
 
     @java.lang.Override
     public Message.Register getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RegisterResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:RegisterResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bool success = 1;</code>
+     * @return The success.
+     */
+    boolean getSuccess();
+  }
+  /**
+   * Protobuf type {@code RegisterResponse}
+   */
+  public static final class RegisterResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:RegisterResponse)
+      RegisterResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RegisterResponse.newBuilder() to construct.
+    private RegisterResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RegisterResponse() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new RegisterResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RegisterResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              success_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Message.internal_static_RegisterResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Message.internal_static_RegisterResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Message.RegisterResponse.class, Message.RegisterResponse.Builder.class);
+    }
+
+    public static final int SUCCESS_FIELD_NUMBER = 1;
+    private boolean success_;
+    /**
+     * <code>bool success = 1;</code>
+     * @return The success.
+     */
+    @java.lang.Override
+    public boolean getSuccess() {
+      return success_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (success_ != false) {
+        output.writeBool(1, success_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (success_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, success_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof Message.RegisterResponse)) {
+        return super.equals(obj);
+      }
+      Message.RegisterResponse other = (Message.RegisterResponse) obj;
+
+      if (getSuccess()
+          != other.getSuccess()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getSuccess());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static Message.RegisterResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.RegisterResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.RegisterResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.RegisterResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.RegisterResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.RegisterResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.RegisterResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Message.RegisterResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Message.RegisterResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static Message.RegisterResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Message.RegisterResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Message.RegisterResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Message.RegisterResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code RegisterResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:RegisterResponse)
+        Message.RegisterResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Message.internal_static_RegisterResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Message.internal_static_RegisterResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Message.RegisterResponse.class, Message.RegisterResponse.Builder.class);
+      }
+
+      // Construct using Message.RegisterResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        success_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Message.internal_static_RegisterResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public Message.RegisterResponse getDefaultInstanceForType() {
+        return Message.RegisterResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public Message.RegisterResponse build() {
+        Message.RegisterResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public Message.RegisterResponse buildPartial() {
+        Message.RegisterResponse result = new Message.RegisterResponse(this);
+        result.success_ = success_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Message.RegisterResponse) {
+          return mergeFrom((Message.RegisterResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Message.RegisterResponse other) {
+        if (other == Message.RegisterResponse.getDefaultInstance()) return this;
+        if (other.getSuccess() != false) {
+          setSuccess(other.getSuccess());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Message.RegisterResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Message.RegisterResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private boolean success_ ;
+      /**
+       * <code>bool success = 1;</code>
+       * @return The success.
+       */
+      @java.lang.Override
+      public boolean getSuccess() {
+        return success_;
+      }
+      /**
+       * <code>bool success = 1;</code>
+       * @param value The success to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSuccess(boolean value) {
+        
+        success_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool success = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSuccess() {
+        
+        success_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:RegisterResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:RegisterResponse)
+    private static final Message.RegisterResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Message.RegisterResponse();
+    }
+
+    public static Message.RegisterResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RegisterResponse>
+        PARSER = new com.google.protobuf.AbstractParser<RegisterResponse>() {
+      @java.lang.Override
+      public RegisterResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RegisterResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RegisterResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RegisterResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public Message.RegisterResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4045,6 +5608,635 @@ public final class Message {
 
   }
 
+  public interface GameInvitationResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:GameInvitationResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 from = 1;</code>
+     * @return The from.
+     */
+    int getFrom();
+
+    /**
+     * <code>int32 to = 2;</code>
+     * @return The to.
+     */
+    int getTo();
+
+    /**
+     * <code>bool accepted = 3;</code>
+     * @return The accepted.
+     */
+    boolean getAccepted();
+  }
+  /**
+   * Protobuf type {@code GameInvitationResponse}
+   */
+  public static final class GameInvitationResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:GameInvitationResponse)
+      GameInvitationResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GameInvitationResponse.newBuilder() to construct.
+    private GameInvitationResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GameInvitationResponse() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GameInvitationResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GameInvitationResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              from_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              to_ = input.readInt32();
+              break;
+            }
+            case 24: {
+
+              accepted_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Message.internal_static_GameInvitationResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Message.internal_static_GameInvitationResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Message.GameInvitationResponse.class, Message.GameInvitationResponse.Builder.class);
+    }
+
+    public static final int FROM_FIELD_NUMBER = 1;
+    private int from_;
+    /**
+     * <code>int32 from = 1;</code>
+     * @return The from.
+     */
+    @java.lang.Override
+    public int getFrom() {
+      return from_;
+    }
+
+    public static final int TO_FIELD_NUMBER = 2;
+    private int to_;
+    /**
+     * <code>int32 to = 2;</code>
+     * @return The to.
+     */
+    @java.lang.Override
+    public int getTo() {
+      return to_;
+    }
+
+    public static final int ACCEPTED_FIELD_NUMBER = 3;
+    private boolean accepted_;
+    /**
+     * <code>bool accepted = 3;</code>
+     * @return The accepted.
+     */
+    @java.lang.Override
+    public boolean getAccepted() {
+      return accepted_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (from_ != 0) {
+        output.writeInt32(1, from_);
+      }
+      if (to_ != 0) {
+        output.writeInt32(2, to_);
+      }
+      if (accepted_ != false) {
+        output.writeBool(3, accepted_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (from_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, from_);
+      }
+      if (to_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, to_);
+      }
+      if (accepted_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, accepted_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof Message.GameInvitationResponse)) {
+        return super.equals(obj);
+      }
+      Message.GameInvitationResponse other = (Message.GameInvitationResponse) obj;
+
+      if (getFrom()
+          != other.getFrom()) return false;
+      if (getTo()
+          != other.getTo()) return false;
+      if (getAccepted()
+          != other.getAccepted()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FROM_FIELD_NUMBER;
+      hash = (53 * hash) + getFrom();
+      hash = (37 * hash) + TO_FIELD_NUMBER;
+      hash = (53 * hash) + getTo();
+      hash = (37 * hash) + ACCEPTED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getAccepted());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static Message.GameInvitationResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.GameInvitationResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.GameInvitationResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.GameInvitationResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.GameInvitationResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.GameInvitationResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.GameInvitationResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Message.GameInvitationResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Message.GameInvitationResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static Message.GameInvitationResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Message.GameInvitationResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Message.GameInvitationResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Message.GameInvitationResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code GameInvitationResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:GameInvitationResponse)
+        Message.GameInvitationResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Message.internal_static_GameInvitationResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Message.internal_static_GameInvitationResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Message.GameInvitationResponse.class, Message.GameInvitationResponse.Builder.class);
+      }
+
+      // Construct using Message.GameInvitationResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        from_ = 0;
+
+        to_ = 0;
+
+        accepted_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Message.internal_static_GameInvitationResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public Message.GameInvitationResponse getDefaultInstanceForType() {
+        return Message.GameInvitationResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public Message.GameInvitationResponse build() {
+        Message.GameInvitationResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public Message.GameInvitationResponse buildPartial() {
+        Message.GameInvitationResponse result = new Message.GameInvitationResponse(this);
+        result.from_ = from_;
+        result.to_ = to_;
+        result.accepted_ = accepted_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Message.GameInvitationResponse) {
+          return mergeFrom((Message.GameInvitationResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Message.GameInvitationResponse other) {
+        if (other == Message.GameInvitationResponse.getDefaultInstance()) return this;
+        if (other.getFrom() != 0) {
+          setFrom(other.getFrom());
+        }
+        if (other.getTo() != 0) {
+          setTo(other.getTo());
+        }
+        if (other.getAccepted() != false) {
+          setAccepted(other.getAccepted());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Message.GameInvitationResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Message.GameInvitationResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int from_ ;
+      /**
+       * <code>int32 from = 1;</code>
+       * @return The from.
+       */
+      @java.lang.Override
+      public int getFrom() {
+        return from_;
+      }
+      /**
+       * <code>int32 from = 1;</code>
+       * @param value The from to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFrom(int value) {
+        
+        from_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 from = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFrom() {
+        
+        from_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int to_ ;
+      /**
+       * <code>int32 to = 2;</code>
+       * @return The to.
+       */
+      @java.lang.Override
+      public int getTo() {
+        return to_;
+      }
+      /**
+       * <code>int32 to = 2;</code>
+       * @param value The to to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTo(int value) {
+        
+        to_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 to = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTo() {
+        
+        to_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean accepted_ ;
+      /**
+       * <code>bool accepted = 3;</code>
+       * @return The accepted.
+       */
+      @java.lang.Override
+      public boolean getAccepted() {
+        return accepted_;
+      }
+      /**
+       * <code>bool accepted = 3;</code>
+       * @param value The accepted to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAccepted(boolean value) {
+        
+        accepted_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool accepted = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAccepted() {
+        
+        accepted_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:GameInvitationResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:GameInvitationResponse)
+    private static final Message.GameInvitationResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Message.GameInvitationResponse();
+    }
+
+    public static Message.GameInvitationResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GameInvitationResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GameInvitationResponse>() {
+      @java.lang.Override
+      public GameInvitationResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GameInvitationResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GameInvitationResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GameInvitationResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public Message.GameInvitationResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface MoveOrBuilder extends
       // @@protoc_insertion_point(interface_extends:Move)
       com.google.protobuf.MessageOrBuilder {
@@ -4066,12 +6258,6 @@ public final class Message {
      * @return The y.
      */
     int getY();
-
-    /**
-     * <code>bool response = 4;</code>
-     * @return The response.
-     */
-    boolean getResponse();
   }
   /**
    * Protobuf type {@code Move}
@@ -4131,11 +6317,6 @@ public final class Message {
             case 24: {
 
               y_ = input.readInt32();
-              break;
-            }
-            case 32: {
-
-              response_ = input.readBool();
               break;
             }
             default: {
@@ -4203,17 +6384,6 @@ public final class Message {
       return y_;
     }
 
-    public static final int RESPONSE_FIELD_NUMBER = 4;
-    private boolean response_;
-    /**
-     * <code>bool response = 4;</code>
-     * @return The response.
-     */
-    @java.lang.Override
-    public boolean getResponse() {
-      return response_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4237,9 +6407,6 @@ public final class Message {
       if (y_ != 0) {
         output.writeInt32(3, y_);
       }
-      if (response_ != false) {
-        output.writeBool(4, response_);
-      }
       unknownFields.writeTo(output);
     }
 
@@ -4260,10 +6427,6 @@ public final class Message {
       if (y_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, y_);
-      }
-      if (response_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(4, response_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4286,8 +6449,6 @@ public final class Message {
           != other.getX()) return false;
       if (getY()
           != other.getY()) return false;
-      if (getResponse()
-          != other.getResponse()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4305,9 +6466,6 @@ public final class Message {
       hash = (53 * hash) + getX();
       hash = (37 * hash) + Y_FIELD_NUMBER;
       hash = (53 * hash) + getY();
-      hash = (37 * hash) + RESPONSE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getResponse());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4447,8 +6605,6 @@ public final class Message {
 
         y_ = 0;
 
-        response_ = false;
-
         return this;
       }
 
@@ -4478,7 +6634,6 @@ public final class Message {
         result.from_ = from_;
         result.x_ = x_;
         result.y_ = y_;
-        result.response_ = response_;
         onBuilt();
         return result;
       }
@@ -4535,9 +6690,6 @@ public final class Message {
         }
         if (other.getY() != 0) {
           setY(other.getY());
-        }
-        if (other.getResponse() != false) {
-          setResponse(other.getResponse());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4660,37 +6812,6 @@ public final class Message {
         onChanged();
         return this;
       }
-
-      private boolean response_ ;
-      /**
-       * <code>bool response = 4;</code>
-       * @return The response.
-       */
-      @java.lang.Override
-      public boolean getResponse() {
-        return response_;
-      }
-      /**
-       * <code>bool response = 4;</code>
-       * @param value The response to set.
-       * @return This builder for chaining.
-       */
-      public Builder setResponse(boolean value) {
-        
-        response_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bool response = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearResponse() {
-        
-        response_ = false;
-        onChanged();
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -4744,6 +6865,2139 @@ public final class Message {
 
   }
 
+  public interface MoveResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:MoveResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 from = 1;</code>
+     * @return The from.
+     */
+    int getFrom();
+
+    /**
+     * <code>bool correct = 2;</code>
+     * @return The correct.
+     */
+    boolean getCorrect();
+
+    /**
+     * <code>.MoveResponse.MoveRejectReason reason = 3;</code>
+     * @return The enum numeric value on the wire for reason.
+     */
+    int getReasonValue();
+    /**
+     * <code>.MoveResponse.MoveRejectReason reason = 3;</code>
+     * @return The reason.
+     */
+    Message.MoveResponse.MoveRejectReason getReason();
+  }
+  /**
+   * Protobuf type {@code MoveResponse}
+   */
+  public static final class MoveResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:MoveResponse)
+      MoveResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MoveResponse.newBuilder() to construct.
+    private MoveResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MoveResponse() {
+      reason_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MoveResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MoveResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              from_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              correct_ = input.readBool();
+              break;
+            }
+            case 24: {
+              int rawValue = input.readEnum();
+
+              reason_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Message.internal_static_MoveResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Message.internal_static_MoveResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Message.MoveResponse.class, Message.MoveResponse.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code MoveResponse.MoveRejectReason}
+     */
+    public enum MoveRejectReason
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>NONE = 0;</code>
+       */
+      NONE(0),
+      /**
+       * <code>WRONG_POS = 1;</code>
+       */
+      WRONG_POS(1),
+      /**
+       * <code>WRONG_TURN = 2;</code>
+       */
+      WRONG_TURN(2),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>NONE = 0;</code>
+       */
+      public static final int NONE_VALUE = 0;
+      /**
+       * <code>WRONG_POS = 1;</code>
+       */
+      public static final int WRONG_POS_VALUE = 1;
+      /**
+       * <code>WRONG_TURN = 2;</code>
+       */
+      public static final int WRONG_TURN_VALUE = 2;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static MoveRejectReason valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static MoveRejectReason forNumber(int value) {
+        switch (value) {
+          case 0: return NONE;
+          case 1: return WRONG_POS;
+          case 2: return WRONG_TURN;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<MoveRejectReason>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          MoveRejectReason> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<MoveRejectReason>() {
+              public MoveRejectReason findValueByNumber(int number) {
+                return MoveRejectReason.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return Message.MoveResponse.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final MoveRejectReason[] VALUES = values();
+
+      public static MoveRejectReason valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private MoveRejectReason(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:MoveResponse.MoveRejectReason)
+    }
+
+    public static final int FROM_FIELD_NUMBER = 1;
+    private int from_;
+    /**
+     * <code>int32 from = 1;</code>
+     * @return The from.
+     */
+    @java.lang.Override
+    public int getFrom() {
+      return from_;
+    }
+
+    public static final int CORRECT_FIELD_NUMBER = 2;
+    private boolean correct_;
+    /**
+     * <code>bool correct = 2;</code>
+     * @return The correct.
+     */
+    @java.lang.Override
+    public boolean getCorrect() {
+      return correct_;
+    }
+
+    public static final int REASON_FIELD_NUMBER = 3;
+    private int reason_;
+    /**
+     * <code>.MoveResponse.MoveRejectReason reason = 3;</code>
+     * @return The enum numeric value on the wire for reason.
+     */
+    @java.lang.Override public int getReasonValue() {
+      return reason_;
+    }
+    /**
+     * <code>.MoveResponse.MoveRejectReason reason = 3;</code>
+     * @return The reason.
+     */
+    @java.lang.Override public Message.MoveResponse.MoveRejectReason getReason() {
+      @SuppressWarnings("deprecation")
+      Message.MoveResponse.MoveRejectReason result = Message.MoveResponse.MoveRejectReason.valueOf(reason_);
+      return result == null ? Message.MoveResponse.MoveRejectReason.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (from_ != 0) {
+        output.writeInt32(1, from_);
+      }
+      if (correct_ != false) {
+        output.writeBool(2, correct_);
+      }
+      if (reason_ != Message.MoveResponse.MoveRejectReason.NONE.getNumber()) {
+        output.writeEnum(3, reason_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (from_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, from_);
+      }
+      if (correct_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, correct_);
+      }
+      if (reason_ != Message.MoveResponse.MoveRejectReason.NONE.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, reason_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof Message.MoveResponse)) {
+        return super.equals(obj);
+      }
+      Message.MoveResponse other = (Message.MoveResponse) obj;
+
+      if (getFrom()
+          != other.getFrom()) return false;
+      if (getCorrect()
+          != other.getCorrect()) return false;
+      if (reason_ != other.reason_) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FROM_FIELD_NUMBER;
+      hash = (53 * hash) + getFrom();
+      hash = (37 * hash) + CORRECT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getCorrect());
+      hash = (37 * hash) + REASON_FIELD_NUMBER;
+      hash = (53 * hash) + reason_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static Message.MoveResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.MoveResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.MoveResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.MoveResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.MoveResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.MoveResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.MoveResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Message.MoveResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Message.MoveResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static Message.MoveResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Message.MoveResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Message.MoveResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Message.MoveResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code MoveResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:MoveResponse)
+        Message.MoveResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Message.internal_static_MoveResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Message.internal_static_MoveResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Message.MoveResponse.class, Message.MoveResponse.Builder.class);
+      }
+
+      // Construct using Message.MoveResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        from_ = 0;
+
+        correct_ = false;
+
+        reason_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Message.internal_static_MoveResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public Message.MoveResponse getDefaultInstanceForType() {
+        return Message.MoveResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public Message.MoveResponse build() {
+        Message.MoveResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public Message.MoveResponse buildPartial() {
+        Message.MoveResponse result = new Message.MoveResponse(this);
+        result.from_ = from_;
+        result.correct_ = correct_;
+        result.reason_ = reason_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Message.MoveResponse) {
+          return mergeFrom((Message.MoveResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Message.MoveResponse other) {
+        if (other == Message.MoveResponse.getDefaultInstance()) return this;
+        if (other.getFrom() != 0) {
+          setFrom(other.getFrom());
+        }
+        if (other.getCorrect() != false) {
+          setCorrect(other.getCorrect());
+        }
+        if (other.reason_ != 0) {
+          setReasonValue(other.getReasonValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Message.MoveResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Message.MoveResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int from_ ;
+      /**
+       * <code>int32 from = 1;</code>
+       * @return The from.
+       */
+      @java.lang.Override
+      public int getFrom() {
+        return from_;
+      }
+      /**
+       * <code>int32 from = 1;</code>
+       * @param value The from to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFrom(int value) {
+        
+        from_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 from = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFrom() {
+        
+        from_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean correct_ ;
+      /**
+       * <code>bool correct = 2;</code>
+       * @return The correct.
+       */
+      @java.lang.Override
+      public boolean getCorrect() {
+        return correct_;
+      }
+      /**
+       * <code>bool correct = 2;</code>
+       * @param value The correct to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCorrect(boolean value) {
+        
+        correct_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool correct = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCorrect() {
+        
+        correct_ = false;
+        onChanged();
+        return this;
+      }
+
+      private int reason_ = 0;
+      /**
+       * <code>.MoveResponse.MoveRejectReason reason = 3;</code>
+       * @return The enum numeric value on the wire for reason.
+       */
+      @java.lang.Override public int getReasonValue() {
+        return reason_;
+      }
+      /**
+       * <code>.MoveResponse.MoveRejectReason reason = 3;</code>
+       * @param value The enum numeric value on the wire for reason to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReasonValue(int value) {
+        
+        reason_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.MoveResponse.MoveRejectReason reason = 3;</code>
+       * @return The reason.
+       */
+      @java.lang.Override
+      public Message.MoveResponse.MoveRejectReason getReason() {
+        @SuppressWarnings("deprecation")
+        Message.MoveResponse.MoveRejectReason result = Message.MoveResponse.MoveRejectReason.valueOf(reason_);
+        return result == null ? Message.MoveResponse.MoveRejectReason.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.MoveResponse.MoveRejectReason reason = 3;</code>
+       * @param value The reason to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReason(Message.MoveResponse.MoveRejectReason value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        reason_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.MoveResponse.MoveRejectReason reason = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearReason() {
+        
+        reason_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:MoveResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:MoveResponse)
+    private static final Message.MoveResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Message.MoveResponse();
+    }
+
+    public static Message.MoveResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<MoveResponse>
+        PARSER = new com.google.protobuf.AbstractParser<MoveResponse>() {
+      @java.lang.Override
+      public MoveResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MoveResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<MoveResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MoveResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public Message.MoveResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GameResultOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:GameResult)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.GameResult.Result result = 1;</code>
+     * @return The enum numeric value on the wire for result.
+     */
+    int getResultValue();
+    /**
+     * <code>.GameResult.Result result = 1;</code>
+     * @return The result.
+     */
+    Message.GameResult.Result getResult();
+  }
+  /**
+   * Protobuf type {@code GameResult}
+   */
+  public static final class GameResult extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:GameResult)
+      GameResultOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GameResult.newBuilder() to construct.
+    private GameResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GameResult() {
+      result_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GameResult();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GameResult(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              result_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Message.internal_static_GameResult_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Message.internal_static_GameResult_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Message.GameResult.class, Message.GameResult.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code GameResult.Result}
+     */
+    public enum Result
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>NOUGHTS = 0;</code>
+       */
+      NOUGHTS(0),
+      /**
+       * <code>CROSSES = 1;</code>
+       */
+      CROSSES(1),
+      /**
+       * <code>DRAW = 2;</code>
+       */
+      DRAW(2),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>NOUGHTS = 0;</code>
+       */
+      public static final int NOUGHTS_VALUE = 0;
+      /**
+       * <code>CROSSES = 1;</code>
+       */
+      public static final int CROSSES_VALUE = 1;
+      /**
+       * <code>DRAW = 2;</code>
+       */
+      public static final int DRAW_VALUE = 2;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static Result valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static Result forNumber(int value) {
+        switch (value) {
+          case 0: return NOUGHTS;
+          case 1: return CROSSES;
+          case 2: return DRAW;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<Result>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Result> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Result>() {
+              public Result findValueByNumber(int number) {
+                return Result.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return Message.GameResult.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final Result[] VALUES = values();
+
+      public static Result valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private Result(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:GameResult.Result)
+    }
+
+    public static final int RESULT_FIELD_NUMBER = 1;
+    private int result_;
+    /**
+     * <code>.GameResult.Result result = 1;</code>
+     * @return The enum numeric value on the wire for result.
+     */
+    @java.lang.Override public int getResultValue() {
+      return result_;
+    }
+    /**
+     * <code>.GameResult.Result result = 1;</code>
+     * @return The result.
+     */
+    @java.lang.Override public Message.GameResult.Result getResult() {
+      @SuppressWarnings("deprecation")
+      Message.GameResult.Result result = Message.GameResult.Result.valueOf(result_);
+      return result == null ? Message.GameResult.Result.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (result_ != Message.GameResult.Result.NOUGHTS.getNumber()) {
+        output.writeEnum(1, result_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (result_ != Message.GameResult.Result.NOUGHTS.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, result_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof Message.GameResult)) {
+        return super.equals(obj);
+      }
+      Message.GameResult other = (Message.GameResult) obj;
+
+      if (result_ != other.result_) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + RESULT_FIELD_NUMBER;
+      hash = (53 * hash) + result_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static Message.GameResult parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.GameResult parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.GameResult parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.GameResult parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.GameResult parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.GameResult parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.GameResult parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Message.GameResult parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Message.GameResult parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static Message.GameResult parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Message.GameResult parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Message.GameResult parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Message.GameResult prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code GameResult}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:GameResult)
+        Message.GameResultOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Message.internal_static_GameResult_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Message.internal_static_GameResult_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Message.GameResult.class, Message.GameResult.Builder.class);
+      }
+
+      // Construct using Message.GameResult.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        result_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Message.internal_static_GameResult_descriptor;
+      }
+
+      @java.lang.Override
+      public Message.GameResult getDefaultInstanceForType() {
+        return Message.GameResult.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public Message.GameResult build() {
+        Message.GameResult result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public Message.GameResult buildPartial() {
+        Message.GameResult result = new Message.GameResult(this);
+        result.result_ = result_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Message.GameResult) {
+          return mergeFrom((Message.GameResult)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Message.GameResult other) {
+        if (other == Message.GameResult.getDefaultInstance()) return this;
+        if (other.result_ != 0) {
+          setResultValue(other.getResultValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Message.GameResult parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Message.GameResult) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int result_ = 0;
+      /**
+       * <code>.GameResult.Result result = 1;</code>
+       * @return The enum numeric value on the wire for result.
+       */
+      @java.lang.Override public int getResultValue() {
+        return result_;
+      }
+      /**
+       * <code>.GameResult.Result result = 1;</code>
+       * @param value The enum numeric value on the wire for result to set.
+       * @return This builder for chaining.
+       */
+      public Builder setResultValue(int value) {
+        
+        result_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.GameResult.Result result = 1;</code>
+       * @return The result.
+       */
+      @java.lang.Override
+      public Message.GameResult.Result getResult() {
+        @SuppressWarnings("deprecation")
+        Message.GameResult.Result result = Message.GameResult.Result.valueOf(result_);
+        return result == null ? Message.GameResult.Result.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.GameResult.Result result = 1;</code>
+       * @param value The result to set.
+       * @return This builder for chaining.
+       */
+      public Builder setResult(Message.GameResult.Result value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        result_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.GameResult.Result result = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearResult() {
+        
+        result_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:GameResult)
+    }
+
+    // @@protoc_insertion_point(class_scope:GameResult)
+    private static final Message.GameResult DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Message.GameResult();
+    }
+
+    public static Message.GameResult getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GameResult>
+        PARSER = new com.google.protobuf.AbstractParser<GameResult>() {
+      @java.lang.Override
+      public GameResult parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GameResult(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GameResult> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GameResult> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public Message.GameResult getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PrivateMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:PrivateMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 from = 1;</code>
+     * @return The from.
+     */
+    int getFrom();
+
+    /**
+     * <code>int32 to = 2;</code>
+     * @return The to.
+     */
+    int getTo();
+
+    /**
+     * <code>string message = 3;</code>
+     * @return The message.
+     */
+    java.lang.String getMessage();
+    /**
+     * <code>string message = 3;</code>
+     * @return The bytes for message.
+     */
+    com.google.protobuf.ByteString
+        getMessageBytes();
+  }
+  /**
+   * Protobuf type {@code PrivateMessage}
+   */
+  public static final class PrivateMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:PrivateMessage)
+      PrivateMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PrivateMessage.newBuilder() to construct.
+    private PrivateMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PrivateMessage() {
+      message_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PrivateMessage();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PrivateMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              from_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              to_ = input.readInt32();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              message_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Message.internal_static_PrivateMessage_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Message.internal_static_PrivateMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Message.PrivateMessage.class, Message.PrivateMessage.Builder.class);
+    }
+
+    public static final int FROM_FIELD_NUMBER = 1;
+    private int from_;
+    /**
+     * <code>int32 from = 1;</code>
+     * @return The from.
+     */
+    @java.lang.Override
+    public int getFrom() {
+      return from_;
+    }
+
+    public static final int TO_FIELD_NUMBER = 2;
+    private int to_;
+    /**
+     * <code>int32 to = 2;</code>
+     * @return The to.
+     */
+    @java.lang.Override
+    public int getTo() {
+      return to_;
+    }
+
+    public static final int MESSAGE_FIELD_NUMBER = 3;
+    private volatile java.lang.Object message_;
+    /**
+     * <code>string message = 3;</code>
+     * @return The message.
+     */
+    @java.lang.Override
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        message_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string message = 3;</code>
+     * @return The bytes for message.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (from_ != 0) {
+        output.writeInt32(1, from_);
+      }
+      if (to_ != 0) {
+        output.writeInt32(2, to_);
+      }
+      if (!getMessageBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, message_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (from_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, from_);
+      }
+      if (to_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, to_);
+      }
+      if (!getMessageBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, message_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof Message.PrivateMessage)) {
+        return super.equals(obj);
+      }
+      Message.PrivateMessage other = (Message.PrivateMessage) obj;
+
+      if (getFrom()
+          != other.getFrom()) return false;
+      if (getTo()
+          != other.getTo()) return false;
+      if (!getMessage()
+          .equals(other.getMessage())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FROM_FIELD_NUMBER;
+      hash = (53 * hash) + getFrom();
+      hash = (37 * hash) + TO_FIELD_NUMBER;
+      hash = (53 * hash) + getTo();
+      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getMessage().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static Message.PrivateMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.PrivateMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.PrivateMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.PrivateMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.PrivateMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.PrivateMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.PrivateMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Message.PrivateMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Message.PrivateMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static Message.PrivateMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Message.PrivateMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Message.PrivateMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Message.PrivateMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code PrivateMessage}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:PrivateMessage)
+        Message.PrivateMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Message.internal_static_PrivateMessage_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Message.internal_static_PrivateMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Message.PrivateMessage.class, Message.PrivateMessage.Builder.class);
+      }
+
+      // Construct using Message.PrivateMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        from_ = 0;
+
+        to_ = 0;
+
+        message_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Message.internal_static_PrivateMessage_descriptor;
+      }
+
+      @java.lang.Override
+      public Message.PrivateMessage getDefaultInstanceForType() {
+        return Message.PrivateMessage.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public Message.PrivateMessage build() {
+        Message.PrivateMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public Message.PrivateMessage buildPartial() {
+        Message.PrivateMessage result = new Message.PrivateMessage(this);
+        result.from_ = from_;
+        result.to_ = to_;
+        result.message_ = message_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Message.PrivateMessage) {
+          return mergeFrom((Message.PrivateMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Message.PrivateMessage other) {
+        if (other == Message.PrivateMessage.getDefaultInstance()) return this;
+        if (other.getFrom() != 0) {
+          setFrom(other.getFrom());
+        }
+        if (other.getTo() != 0) {
+          setTo(other.getTo());
+        }
+        if (!other.getMessage().isEmpty()) {
+          message_ = other.message_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Message.PrivateMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Message.PrivateMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int from_ ;
+      /**
+       * <code>int32 from = 1;</code>
+       * @return The from.
+       */
+      @java.lang.Override
+      public int getFrom() {
+        return from_;
+      }
+      /**
+       * <code>int32 from = 1;</code>
+       * @param value The from to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFrom(int value) {
+        
+        from_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 from = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFrom() {
+        
+        from_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int to_ ;
+      /**
+       * <code>int32 to = 2;</code>
+       * @return The to.
+       */
+      @java.lang.Override
+      public int getTo() {
+        return to_;
+      }
+      /**
+       * <code>int32 to = 2;</code>
+       * @param value The to to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTo(int value) {
+        
+        to_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 to = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTo() {
+        
+        to_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object message_ = "";
+      /**
+       * <code>string message = 3;</code>
+       * @return The message.
+       */
+      public java.lang.String getMessage() {
+        java.lang.Object ref = message_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          message_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string message = 3;</code>
+       * @return The bytes for message.
+       */
+      public com.google.protobuf.ByteString
+          getMessageBytes() {
+        java.lang.Object ref = message_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          message_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string message = 3;</code>
+       * @param value The message to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMessage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        message_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string message = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMessage() {
+        
+        message_ = getDefaultInstance().getMessage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string message = 3;</code>
+       * @param value The bytes for message to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        message_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:PrivateMessage)
+    }
+
+    // @@protoc_insertion_point(class_scope:PrivateMessage)
+    private static final Message.PrivateMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Message.PrivateMessage();
+    }
+
+    public static Message.PrivateMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PrivateMessage>
+        PARSER = new com.google.protobuf.AbstractParser<PrivateMessage>() {
+      @java.lang.Override
+      public PrivateMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PrivateMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<PrivateMessage> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PrivateMessage> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public Message.PrivateMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_WrapperMessage_descriptor;
   private static final 
@@ -4754,6 +9008,11 @@ public final class Message {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Register_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_RegisterResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_RegisterResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Client_descriptor;
   private static final 
@@ -4770,10 +9029,30 @@ public final class Message {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_GameInvitation_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GameInvitationResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GameInvitationResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Move_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Move_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_MoveResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_MoveResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GameResult_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GameResult_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_PrivateMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_PrivateMessage_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -4783,17 +9062,32 @@ public final class Message {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\024wrappermessage.proto\"\234\001\n\016WrapperMessag" +
-      "e\022\035\n\010register\030\001 \001(\0132\t.RegisterH\000\022\"\n\nclie" +
-      "ntList\030\002 \001(\0132\014.ClientsListH\000\022)\n\016gameInvi" +
-      "tation\030\003 \001(\0132\017.GameInvitationH\000\022\025\n\004move\030" +
-      "\004 \001(\0132\005.MoveH\000B\005\n\003msg\"*\n\010Register\022\014\n\004nic" +
-      "k\030\001 \001(\t\022\020\n\010response\030\002 \001(\010\"\"\n\006Client\022\014\n\004n" +
-      "ick\030\001 \001(\t\022\n\n\002id\030\002 \001(\005\"\'\n\013ClientsList\022\030\n\007" +
-      "clients\030\001 \003(\0132\007.Client\"*\n\016GameInvitation" +
-      "\022\014\n\004from\030\001 \001(\005\022\n\n\002to\030\002 \001(\005\"<\n\004Move\022\014\n\004fr" +
-      "om\030\001 \001(\005\022\t\n\001x\030\002 \001(\005\022\t\n\001y\030\003 \001(\005\022\020\n\010respon" +
-      "se\030\004 \001(\010B\tB\007Messageb\006proto3"
+      "\n\024wrappermessage.proto\"\374\002\n\016WrapperMessag" +
+      "e\022\035\n\010register\030\001 \001(\0132\t.RegisterH\000\022#\n\013clie" +
+      "ntsList\030\002 \001(\0132\014.ClientsListH\000\022)\n\016gameInv" +
+      "itation\030\003 \001(\0132\017.GameInvitationH\000\022\025\n\004move" +
+      "\030\004 \001(\0132\005.MoveH\000\022)\n\016privateMessage\030\005 \001(\0132" +
+      "\017.PrivateMessageH\000\022-\n\020registerResponse\030\006" +
+      " \001(\0132\021.RegisterResponseH\000\0229\n\026gameInvitat" +
+      "ionResponse\030\007 \001(\0132\027.GameInvitationRespon" +
+      "seH\000\022%\n\014moveResponse\030\010 \001(\0132\r.MoveRespons" +
+      "eH\000\022!\n\ngameResult\030\t \001(\0132\013.GameResultH\000B\005" +
+      "\n\003msg\"\030\n\010Register\022\014\n\004nick\030\001 \001(\t\"#\n\020Regis" +
+      "terResponse\022\017\n\007success\030\001 \001(\010\"\"\n\006Client\022\014" +
+      "\n\004nick\030\001 \001(\t\022\n\n\002id\030\002 \001(\005\"\'\n\013ClientsList\022" +
+      "\030\n\007clients\030\001 \003(\0132\007.Client\"*\n\016GameInvitat" +
+      "ion\022\014\n\004from\030\001 \001(\005\022\n\n\002to\030\002 \001(\005\"D\n\026GameInv" +
+      "itationResponse\022\014\n\004from\030\001 \001(\005\022\n\n\002to\030\002 \001(" +
+      "\005\022\020\n\010accepted\030\003 \001(\010\"*\n\004Move\022\014\n\004from\030\001 \001(" +
+      "\005\022\t\n\001x\030\002 \001(\005\022\t\n\001y\030\003 \001(\005\"\232\001\n\014MoveResponse" +
+      "\022\014\n\004from\030\001 \001(\005\022\017\n\007correct\030\002 \001(\010\022.\n\006reaso" +
+      "n\030\003 \001(\0162\036.MoveResponse.MoveRejectReason\"" +
+      ";\n\020MoveRejectReason\022\010\n\004NONE\020\000\022\r\n\tWRONG_P" +
+      "OS\020\001\022\016\n\nWRONG_TURN\020\002\"^\n\nGameResult\022\"\n\006re" +
+      "sult\030\001 \001(\0162\022.GameResult.Result\",\n\006Result" +
+      "\022\013\n\007NOUGHTS\020\000\022\013\n\007CROSSES\020\001\022\010\n\004DRAW\020\002\";\n\016" +
+      "PrivateMessage\022\014\n\004from\030\001 \001(\005\022\n\n\002to\030\002 \001(\005" +
+      "\022\017\n\007message\030\003 \001(\tB\tB\007Messageb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4804,37 +9098,67 @@ public final class Message {
     internal_static_WrapperMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WrapperMessage_descriptor,
-        new java.lang.String[] { "Register", "ClientList", "GameInvitation", "Move", "Msg", });
+        new java.lang.String[] { "Register", "ClientsList", "GameInvitation", "Move", "PrivateMessage", "RegisterResponse", "GameInvitationResponse", "MoveResponse", "GameResult", "Msg", });
     internal_static_Register_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Register_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Register_descriptor,
-        new java.lang.String[] { "Nick", "Response", });
-    internal_static_Client_descriptor =
+        new java.lang.String[] { "Nick", });
+    internal_static_RegisterResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_RegisterResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_RegisterResponse_descriptor,
+        new java.lang.String[] { "Success", });
+    internal_static_Client_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_Client_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Client_descriptor,
         new java.lang.String[] { "Nick", "Id", });
     internal_static_ClientsList_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_ClientsList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ClientsList_descriptor,
         new java.lang.String[] { "Clients", });
     internal_static_GameInvitation_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_GameInvitation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GameInvitation_descriptor,
         new java.lang.String[] { "From", "To", });
+    internal_static_GameInvitationResponse_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_GameInvitationResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GameInvitationResponse_descriptor,
+        new java.lang.String[] { "From", "To", "Accepted", });
     internal_static_Move_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_Move_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Move_descriptor,
-        new java.lang.String[] { "From", "X", "Y", "Response", });
+        new java.lang.String[] { "From", "X", "Y", });
+    internal_static_MoveResponse_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_MoveResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_MoveResponse_descriptor,
+        new java.lang.String[] { "From", "Correct", "Reason", });
+    internal_static_GameResult_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_GameResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GameResult_descriptor,
+        new java.lang.String[] { "Result", });
+    internal_static_PrivateMessage_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_PrivateMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_PrivateMessage_descriptor,
+        new java.lang.String[] { "From", "To", "Message", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

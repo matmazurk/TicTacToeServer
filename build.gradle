@@ -20,4 +20,5 @@ dependencies {
     dependencies { testImplementation 'org.mockito:mockito-core:3.5.15' }
     testImplementation(platform("org.junit:junit-bom:5.7.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.4.10"
 }

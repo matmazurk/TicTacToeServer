@@ -6,15 +6,23 @@ option java_outer_classname = "Message";
 message WrapperMessage {
     oneof msg {
       Register register = 1;
-      ClientsList clientList = 2;
+      ClientsList clientsList = 2;
       GameInvitation gameInvitation = 3;
       Move move = 4;
+      PrivateMessage privateMessage = 5;
+      RegisterResponse registerResponse = 6;
+      GameInvitationResponse gameInvitationResponse = 7;
+      MoveResponse moveResponse = 8;
+      GameResult gameResult = 9;
     }
 }
 
 message Register {
   string nick = 1;
-  bool response = 2;
+}
+
+message RegisterResponse {
+  bool success = 1;
 }
 
 message Client {
@@ -31,9 +39,44 @@ message GameInvitation {
   int32 to = 2;
 }
 
+message GameInvitationResponse {
+  int32 from = 1;
+  int32 to = 2;
+  bool accepted = 3;
+}
+
 message Move {
   int32 from = 1;
   int32 x = 2;
   int32 y = 3;
-  bool response = 4;
+}
+
+message MoveResponse {
+  int32 from = 1;
+  bool correct = 2;
+
+  enum MoveRejectReason {
+    NONE = 0;
+    WRONG_POS = 1;
+    WRONG_TURN = 2;
+  }
+
+  MoveRejectReason reason = 3;
+}
+
+message GameResult {
+
+  enum Result {
+    NOUGHTS = 0;
+    CROSSES = 1;
+    DRAW = 2;
+  }
+
+  Result result = 1;
+}
+
+message PrivateMessage {
+  int32 from = 1;
+  int32 to = 2;
+  string message = 3;
 }

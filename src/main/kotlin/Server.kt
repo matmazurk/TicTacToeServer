@@ -1,7 +1,5 @@
-import kotlinx.coroutines.*
 import utils.Time.formatMillisToHHMMSS
 import java.net.ServerSocket
-import java.net.SocketException
 
 class Server(
     private val serverSocket: ServerSocket
@@ -28,7 +26,7 @@ class Server(
                 printAllConnectedClients()
                 val number = readLine()!!.toInt()
                 if(session.isConnected(number)) {
-                    session.writeToClient(readLine()!!, number)
+                    session.writeFromServerToClient(readLine()!!, number)
                 } else {
                     println("Such client is no connected.")
                 }

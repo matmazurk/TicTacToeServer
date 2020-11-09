@@ -1,14 +1,16 @@
+import Message.*
+import com.google.protobuf.GeneratedMessageV3
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.io.IOException
 import java.net.Socket
 import java.net.SocketException
+import kotlin.reflect.KClass
 
 class Client(
-    private val socket: Socket,
-    val number: Int,
-    private val handler: ClientHandler,
+        private val socket: Socket,
+        val number: Int,
+        private val handler: ClientHandler,
 ) {
     enum class State {
         UNREGISTERED,
@@ -30,9 +32,9 @@ class Client(
         GlobalScope.launch(Dispatchers.IO) {
             while(_connected) {
                 try {
-                    val message = Message.WrapperMessage.parseFrom(inputStream)
-                    handler.process(message, number)
-                } catch(e: SocketException) {
+                    val incomingMessage = WrapperMessage.parseFrom(inputStream)
+                    handler.process(incomingMessage, this@Client)
+                } catch (e: SocketException) {
                     disconnect()
                 }
             }
@@ -52,47 +54,63 @@ class Client(
         return null
     }
 
-    private fun messageBase(func: (Message.WrapperMessage.Builder) -> Unit) {
-        val message = Message.WrapperMessage.newBuilder()
-        func(message)
-        message.build().writeDelimitedTo(outputStream)
+    private inline fun <reified Message : GeneratedMessageV3, reified Builder: com.google.protobuf.Message.Builder>
+            message(messageClass: KClass<Message>,
+                    builderClass: KClass<Builder>,
+                    func: Builder.() -> Unit) {
+        val wrapperMessage = WrapperMessage.newBuilder()
+        val messageBuilder = Message::class.members.filter { it.name.contains("newBuilder") && it.parameters.isEmpty() }[0].call() as Builder
+        func(messageBuilder)
+        val property = WrapperMessage::class.java.fields.filter {
+            it.type.name == Message::class.java.name
+        }[0]
+        property.set(wrapperMessage, messageBuilder.build())
+        wrapperMessage.build().writeDelimitedTo(outputStream)
     }
 
     fun sendRegisterResponse(correct: Boolean) =
-        messageBase {
-            val registerResponse = Message.Register.newBuilder()
-            registerResponse.response = correct
-            it.register = registerResponse.build()
+        message(RegisterResponse::class, RegisterResponse.Builder::class) {
+            success = correct
         }
 
     fun sendClientsList(clients: Map<Int, String>) =
-        messageBase {
-            val clientsList = Message.ClientsList.newBuilder()
+        message(ClientsList::class, ClientsList.Builder::class) {
             clients.forEach { (id, nick) ->
                 val client = Message.Client.newBuilder()
                 client.id = id
                 client.nick = nick
-                clientsList.addClients(client.build())
+                addClients(client.build())
             }
-            it.clientList = clientsList.build()
         }
-
 
     fun sendGameInvitation(from: Int, to: Int) =
-        messageBase {
-            val gameInvitation = Message.GameInvitation.newBuilder()
-            gameInvitation.from = from
-            gameInvitation.to = to
-            it.gameInvitation = gameInvitation.build()
+        message(GameInvitation::class, GameInvitation.Builder::class) {
+            this.from = from
+            this.to = to
         }
 
-    fun sendMoveResponse(from: Int, correct: Boolean) =
-        messageBase {
-            val move = Message.Move.newBuilder()
-            move.from = from
-            move.response = correct
-            it.move = move.build()
+    fun sendGameInvitationResponse(from: Int, to: Int, result: Boolean) =
+            message(GameInvitationResponse::class, GameInvitationResponse.Builder::class) {
+                this.from = from
+                this.to = to
+                accepted = result
+            }
+
+    fun sendMoveResponse(from: Int, correct: Boolean, reason: MoveResponse.MoveRejectReason = MoveResponse.MoveRejectReason.NONE) =
+        message(MoveResponse::class, MoveResponse.Builder::class) {
+            this.from = from
+            this.correct = correct
+            if(!correct) {
+                this.reason = reason
+            }
         }
+
+    fun sendPrivateMessage(from: Int, to: Int, message: String) =
+            message(PrivateMessage::class, PrivateMessage.Builder::class) {
+                this.from = from
+                this.to = to
+                this.message = message
+            }
 
 //    private fun send(message: String) {
 //        try {

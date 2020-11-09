@@ -1,6 +1,7 @@
 import kotlinx.coroutines.*
 import java.net.ServerSocket
 import java.net.SocketException
+import Message.WrapperMessage.MsgCase.*
 
 class Session(
     private val serverSocket: ServerSocket
@@ -31,8 +32,8 @@ class Session(
                 client.nick = payload
                 client.state = Client.State.REGISTERED
                 client.sendOkResponse("register")
-                broadcastRegistered {
-                    sendClientsList(prepareClientsList())
+                broadcastToRegisteredClients {
+                    sendClientsList(prepareClientsMap())
                 }
             }
         },
@@ -109,36 +110,49 @@ class Session(
         runBlocking { connSession.join() }
     }
 
-    fun writeToClient(message: String, clientNumber: Int) =
-        getClient(clientNumber)?.sendMessageFromServer(message) ?: -1
+    fun writeFromServerToClient(message: String, clientNumber: Int) =
+        getClient(clientNumber)?.sendPrivateMessage(clientNumber, message) ?: -1
 
     fun isConnected(clientNumber: Int) = getClient(clientNumber) != null
 
-    override fun process(message: String?, clientNumber: Int) {
-        if(message == null) {
-            clients.removeIf { it.number == clientNumber }
-        } else {
-            val splitMessage = message.split(":")
-            if(splitMessage.size != 2) {
-                printError("Wrong message from client$clientNumber")
-                println("Message:$message")
-            } else {
-                val header = splitMessage[0]
-                val payload = splitMessage[1]
-                if(header in messageHandlers.keys) {
-                    messageHandlers[header]!!.invoke(payload, clientNumber)
-                } else {
-                    printError("Wrong message header from client$clientNumber")
-                    println("Header:$header")
+    override fun process(message: Message.WrapperMessage, client: Client) {
+        when(message.msgCase) {
+            REGISTER -> {
+                val registerMessage = message.register
+                val registered = registerNewClient(registerMessage.nick, client)
+                client.sendRegisterResponse(registered)
+                if(registered) {
+                    broadcastToRegisteredClients {
+                        sendClientsList(prepareClientsMap())
+                    }
                 }
+            }
+            CLIENTSLIST -> {
+
+            }
+            GAMEINVITATION -> {
+                val gameInvitation = message.gameInvitation
+                val clientToInvite = getClient(gameInvitation.to)
+                if (clientToInvite == null) {
+                    printError("Invitation from ${gameInvitation.from}, ${gameInvitation.to} not connected any more.")
+                    client.sendGameInvitation(gameInvitation.from, gameInvitation.to, false)
+                    return
+                }
+                clientToInvite.sendGameInvitation(gameInvitation.from, gameInvitation.to, )
+            }
+            MOVE -> {
+
+            }
+            MSG_NOT_SET -> {
+
             }
         }
     }
 
     override fun disconnect(clientNumber: Int) {
         clients.removeIf { it.number == clientNumber }
-        broadcastRegistered {
-            sendClientsList(prepareClientsList())
+        broadcastToRegisteredClients {
+            sendClientsList(prepareClientsMap())
         }
     }
 
@@ -150,17 +164,14 @@ class Session(
         println("${ConsoleColors.RED}$error${ConsoleColors.RESET}")
     }
 
-    private fun prepareClientsList(): String {
-        val list = StringBuilder()
-        clients.forEach {
-            if(it.state != Client.State.UNREGISTERED) {
-                list.append("${it.number}@${it.nick};")
-            }
-        }
-        return list.toString()
-    }
+    private fun prepareClientsMap(): Map<Int, String> =
+            clients.filter {
+                it.state != Client.State.UNREGISTERED
+            }.map {
+                it.number to it.nick!!
+            }.toMap()
 
-    private fun broadcastRegistered(function: Client.() -> Unit) {
+    private fun broadcastToRegisteredClients(function: Client.() -> Unit) {
         clients.forEach {
             if(it.state != Client.State.UNREGISTERED) {
                 it.function() }
@@ -197,6 +208,16 @@ class Session(
 
     private fun getClient(number: Int) =
         clients.find { it.number == number }
+
+    private fun registerNewClient(nick: String, client: Client): Boolean {
+        val isNickTaken = clients.any { it.nick == nick }
+        if (isNickTaken) {
+            return false
+        }
+        client.nick = nick
+        client.state = Client.State.REGISTERED
+        return true
+    }
 }
 
 
