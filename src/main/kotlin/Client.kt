@@ -1,16 +1,20 @@
 import Message.*
 import com.google.protobuf.GeneratedMessageV3
+import com.google.protobuf.InvalidProtocolBufferException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.lang.NullPointerException
 import java.net.Socket
 import java.net.SocketException
 import kotlin.reflect.KClass
+import kotlin.reflect.KParameter
+import kotlin.reflect.KType
 
 class Client(
         private val socket: Socket,
         val number: Int,
-        private val handler: ClientHandler,
+        private val handler: ClientHandler
 ) {
     enum class State {
         UNREGISTERED,
@@ -32,10 +36,17 @@ class Client(
         GlobalScope.launch(Dispatchers.IO) {
             while(_connected) {
                 try {
-                    val incomingMessage = WrapperMessage.parseFrom(inputStream)
-                    handler.process(incomingMessage, this@Client)
+                    val incomingMessage = WrapperMessage.parseDelimitedFrom(inputStream)
+                    if(incomingMessage != null)
+                    {
+                        handler.process(incomingMessage, this@Client)
+                    } else {
+                        disconnect()
+                    }
                 } catch (e: SocketException) {
                     disconnect()
+                } catch (e: InvalidProtocolBufferException) {
+                    println("inv protocol protobuf")
                 }
             }
         }
@@ -61,10 +72,14 @@ class Client(
         val wrapperMessage = WrapperMessage.newBuilder()
         val messageBuilder = Message::class.members.filter { it.name.contains("newBuilder") && it.parameters.isEmpty() }[0].call() as Builder
         func(messageBuilder)
-        val property = WrapperMessage::class.java.fields.filter {
-            it.type.name == Message::class.java.name
+        val property = WrapperMessage.Builder::class.members.filter {
+            it.name.contains("set${Message::class.simpleName}") &&
+            it.parameters.find {
+                !it.type.toString().contains("Builder")
+            } != null
         }[0]
-        property.set(wrapperMessage, messageBuilder.build())
+
+        property.call(wrapperMessage, messageBuilder.build())
         wrapperMessage.build().writeDelimitedTo(outputStream)
     }
 
@@ -83,10 +98,10 @@ class Client(
             }
         }
 
-    fun sendGameInvitation(from: Int, to: Int) =
+    fun sendGameInvitation(from: Int) =
         message(GameInvitation::class, GameInvitation.Builder::class) {
             this.from = from
-            this.to = to
+            this.to = number
         }
 
     fun sendGameInvitationResponse(from: Int, to: Int, result: Boolean) =
