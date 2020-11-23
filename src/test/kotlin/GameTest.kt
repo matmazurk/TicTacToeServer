@@ -2,6 +2,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.ArgumentCaptor
 import org.mockito.Mockito.*
+import Message.MoveResponse.Status.*
 
 private const val FIRST_PARTICIPANT = 1
 private const val SECOND_PARTICIPANT = 2
@@ -19,9 +20,8 @@ class GameTest {
     fun setup() {
         game.start()
 
-        val charCaptor: ArgumentCaptor<Char> = ArgumentCaptor.forClass(Char::class.java)
-        verify(gameHandler).start(charCaptor.capture(), eq(FIRST_PARTICIPANT), eq(SECOND_PARTICIPANT))
-        verify(gameHandler).start(charCaptor.capture(), eq(SECOND_PARTICIPANT), eq(FIRST_PARTICIPANT))
+        val intCaptor: ArgumentCaptor<Int> = ArgumentCaptor.forClass(Int::class.java)
+        verify(gameHandler).start(intCaptor.capture(), intCaptor.capture())
 
         val firstTurnParticipantCaptor = ArgumentCaptor.forClass(Int::class.java)
         verify(gameHandler).turn(firstTurnParticipantCaptor.capture(), firstTurnParticipantCaptor.capture())
@@ -33,13 +33,13 @@ class GameTest {
         assert(firstTurnParticipant in participants)
         assert(secondTurnParticipant in participants)
 
-        if(firstTurnParticipant == FIRST_PARTICIPANT && secondTurnParticipant == SECOND_PARTICIPANT) {
-            firstTurnParticipantChar = charCaptor.allValues[0]
-            secondTurnParticipantChar = charCaptor.allValues[1]
+        if(firstTurnParticipant == intCaptor.allValues[0] && secondTurnParticipant == intCaptor.allValues[1]) {
+            firstTurnParticipantChar = 'O'
+            secondTurnParticipantChar = 'X'
 
-        } else if(firstTurnParticipant == SECOND_PARTICIPANT && secondTurnParticipant == FIRST_PARTICIPANT) {
-            firstTurnParticipantChar = charCaptor.allValues[1]
-            secondTurnParticipantChar = charCaptor.allValues[0]
+        } else if(firstTurnParticipant == intCaptor.allValues[1] && secondTurnParticipant == intCaptor.allValues[0]) {
+            firstTurnParticipantChar = 'X'
+            secondTurnParticipantChar = 'O'
         }
         val availableChartsList = listOf('X', 'O')
         assert(firstTurnParticipantChar in availableChartsList)
@@ -51,22 +51,22 @@ class GameTest {
         game.move(firstTurnParticipant, BOARD_SIZE , -1)
         game.move(firstTurnParticipant, BOARD_SIZE + 1, 0)
         game.move(firstTurnParticipant, BOARD_SIZE + 1, -1)
-        verify(gameHandler, times(3)).move(Game.Move.WRONG_POS, firstTurnParticipant, secondTurnParticipant)
+        verify(gameHandler, times(3)).move(WRONG_POS, firstTurnParticipant, secondTurnParticipant)
     }
 
     @Test
     fun test_game_move_cell_already_set() {
         game.move(firstTurnParticipant, 0, 0)
-        verify(gameHandler).move(Game.Move.OK, firstTurnParticipant, secondTurnParticipant)
+        verify(gameHandler).move(OK, firstTurnParticipant, secondTurnParticipant)
         verify(gameHandler).turn(secondTurnParticipant, firstTurnParticipant)
         game.move(secondTurnParticipant,  0, 0)
-        verify(gameHandler).move(Game.Move.WRONG_POS, secondTurnParticipant, firstTurnParticipant)
+        verify(gameHandler).move(WRONG_POS, secondTurnParticipant, firstTurnParticipant)
     }
 
     @Test
     fun test_game_wrong_turn() {
         game.move(secondTurnParticipant, 0, 0)
-        verify(gameHandler).move(Game.Move.WRONG_TURN, secondTurnParticipant, firstTurnParticipant)
+        verify(gameHandler).move(WRONG_TURN, secondTurnParticipant, firstTurnParticipant)
     }
 
     @Test

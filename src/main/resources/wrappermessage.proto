@@ -14,6 +14,9 @@ message WrapperMessage {
       GameInvitationResponse gameInvitationResponse = 7;
       MoveResponse moveResponse = 8;
       GameResult gameResult = 9;
+      GameStart gameStart = 10;
+      PartnerDisconnected partnerDisconnected = 11;
+      Turn turn = 12;
     }
 }
 
@@ -23,6 +26,7 @@ message Register {
 
 message RegisterResponse {
   bool success = 1;
+  int32 clientNumber = 2;
 }
 
 message Client {
@@ -45,6 +49,20 @@ message GameInvitationResponse {
   bool accepted = 3;
 }
 
+message GameStart {
+  int32 noughts = 1;
+  int32 crosses = 2;
+}
+
+message Turn {
+  int32 turn = 1;
+}
+
+message PartnerDisconnected {
+  int32 partner = 1;
+  int32 client = 2;
+}
+
 message Move {
   int32 from = 1;
   int32 x = 2;
@@ -53,15 +71,14 @@ message Move {
 
 message MoveResponse {
   int32 from = 1;
-  bool correct = 2;
 
-  enum MoveRejectReason {
-    NONE = 0;
+  enum Status {
+    OK = 0;
     WRONG_POS = 1;
     WRONG_TURN = 2;
   }
 
-  MoveRejectReason reason = 3;
+  Status status = 2;
 }
 
 message GameResult {
@@ -70,6 +87,7 @@ message GameResult {
     NOUGHTS = 0;
     CROSSES = 1;
     DRAW = 2;
+    NONE = 3;
   }
 
   Result result = 1;

@@ -1,6 +1,6 @@
 interface GameHandler {
     fun turn(participant: Int, otherParticipant: Int)
-    fun move(result: Game.Move, participant: Int, otherParticipant: Int)
-    fun start(char: Char, participant: Int, partner: Int)
-    fun win(winner: Int, loser: Int)
+    fun move(status: Message.MoveResponse.Status, participant: Int, otherParticipant: Int)
+    fun start(noughts: Int, crosses: Int)
+    fun end(winner: Char, participant: Int, otherParticipant: Int)
 }

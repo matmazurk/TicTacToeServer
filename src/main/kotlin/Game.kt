@@ -1,4 +1,5 @@
 import kotlin.random.Random
+import Message.MoveResponse.Status.*
 
 const val BOARD_SIZE = 3
 
@@ -8,9 +9,6 @@ class Game(
     private val handler: GameHandler,
     val number: Int
 ) {
-    enum class Move {
-        OK, WRONG_POS, WRONG_TURN
-    }
 
     private var turn = -1
 
@@ -29,12 +27,13 @@ class Game(
         if(Random.nextBoolean()) {
             participantsChar[firstParticipant] = 'X'
             participantsChar[secondParticipant] = 'O'
+            handler.start(secondParticipant, firstParticipant)
         } else {
             participantsChar[firstParticipant] = 'O'
             participantsChar[secondParticipant] = 'X'
+            handler.start(firstParticipant, secondParticipant)
         }
-        handler.start(participantsChar[firstParticipant]!!, firstParticipant, secondParticipant)
-        handler.start(participantsChar[secondParticipant]!!, secondParticipant, firstParticipant)
+
         turn = if(Random.nextBoolean()) {
             firstParticipant
         } else {
@@ -45,19 +44,22 @@ class Game(
 
     fun move(participant: Int, row: Int, col: Int) {
         if(participant != turn) {
-            handler.move(Move.WRONG_TURN, participant, getOtherParticipant(participant))
+            handler.move(WRONG_TURN, participant, getOtherParticipant(participant))
             handler.turn(turn, getOtherParticipant(turn))
             return
         }
         if(row !in 0 until BOARD_SIZE || col !in 0 until BOARD_SIZE) {
-            handler.move(Move.WRONG_POS, participant, getOtherParticipant(participant))
+            handler.move(WRONG_POS, participant, getOtherParticipant(participant))
             return
         }
         performMove(participant, row, col)
         if(moves > 4) {
             val winner = checkForWinner()
             if(winner != -1) {
-                handler.win(winner, getOtherParticipant(winner))
+                handler.end(participantsChar[winner]!!, winner, getOtherParticipant(winner))
+            }
+            if(checkForDraft()) {
+                handler.end(' ', winner, getOtherParticipant(winner))
             }
         }
     }
@@ -66,12 +68,12 @@ class Game(
         if (board[row][col] == ' ') {
             board[row][col] = participantsChar[participant]!!
             val otherParticipant = getOtherParticipant(participant)
-            handler.move(Move.OK, participant, otherParticipant)
+            handler.move(OK, participant, otherParticipant)
             handler.turn(otherParticipant, participant)
             turn = otherParticipant
             moves++
         } else {
-            handler.move(Move.WRONG_POS, participant, getOtherParticipant(participant))
+            handler.move(WRONG_POS, participant, getOtherParticipant(participant))
         }
     }
 

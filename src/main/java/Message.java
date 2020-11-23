@@ -151,6 +151,51 @@ public final class Message {
      */
     Message.GameResultOrBuilder getGameResultOrBuilder();
 
+    /**
+     * <code>.GameStart gameStart = 10;</code>
+     * @return Whether the gameStart field is set.
+     */
+    boolean hasGameStart();
+    /**
+     * <code>.GameStart gameStart = 10;</code>
+     * @return The gameStart.
+     */
+    Message.GameStart getGameStart();
+    /**
+     * <code>.GameStart gameStart = 10;</code>
+     */
+    Message.GameStartOrBuilder getGameStartOrBuilder();
+
+    /**
+     * <code>.PartnerDisconnected partnerDisconnected = 11;</code>
+     * @return Whether the partnerDisconnected field is set.
+     */
+    boolean hasPartnerDisconnected();
+    /**
+     * <code>.PartnerDisconnected partnerDisconnected = 11;</code>
+     * @return The partnerDisconnected.
+     */
+    Message.PartnerDisconnected getPartnerDisconnected();
+    /**
+     * <code>.PartnerDisconnected partnerDisconnected = 11;</code>
+     */
+    Message.PartnerDisconnectedOrBuilder getPartnerDisconnectedOrBuilder();
+
+    /**
+     * <code>.Turn turn = 12;</code>
+     * @return Whether the turn field is set.
+     */
+    boolean hasTurn();
+    /**
+     * <code>.Turn turn = 12;</code>
+     * @return The turn.
+     */
+    Message.Turn getTurn();
+    /**
+     * <code>.Turn turn = 12;</code>
+     */
+    Message.TurnOrBuilder getTurnOrBuilder();
+
     public Message.WrapperMessage.MsgCase getMsgCase();
   }
   /**
@@ -324,6 +369,48 @@ public final class Message {
               msgCase_ = 9;
               break;
             }
+            case 82: {
+              Message.GameStart.Builder subBuilder = null;
+              if (msgCase_ == 10) {
+                subBuilder = ((Message.GameStart) msg_).toBuilder();
+              }
+              msg_ =
+                  input.readMessage(Message.GameStart.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((Message.GameStart) msg_);
+                msg_ = subBuilder.buildPartial();
+              }
+              msgCase_ = 10;
+              break;
+            }
+            case 90: {
+              Message.PartnerDisconnected.Builder subBuilder = null;
+              if (msgCase_ == 11) {
+                subBuilder = ((Message.PartnerDisconnected) msg_).toBuilder();
+              }
+              msg_ =
+                  input.readMessage(Message.PartnerDisconnected.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((Message.PartnerDisconnected) msg_);
+                msg_ = subBuilder.buildPartial();
+              }
+              msgCase_ = 11;
+              break;
+            }
+            case 98: {
+              Message.Turn.Builder subBuilder = null;
+              if (msgCase_ == 12) {
+                subBuilder = ((Message.Turn) msg_).toBuilder();
+              }
+              msg_ =
+                  input.readMessage(Message.Turn.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((Message.Turn) msg_);
+                msg_ = subBuilder.buildPartial();
+              }
+              msgCase_ = 12;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -370,6 +457,9 @@ public final class Message {
       GAMEINVITATIONRESPONSE(7),
       MOVERESPONSE(8),
       GAMERESULT(9),
+      GAMESTART(10),
+      PARTNERDISCONNECTED(11),
+      TURN(12),
       MSG_NOT_SET(0);
       private final int value;
       private MsgCase(int value) {
@@ -396,6 +486,9 @@ public final class Message {
           case 7: return GAMEINVITATIONRESPONSE;
           case 8: return MOVERESPONSE;
           case 9: return GAMERESULT;
+          case 10: return GAMESTART;
+          case 11: return PARTNERDISCONNECTED;
+          case 12: return TURN;
           case 0: return MSG_NOT_SET;
           default: return null;
         }
@@ -690,6 +783,99 @@ public final class Message {
       return Message.GameResult.getDefaultInstance();
     }
 
+    public static final int GAMESTART_FIELD_NUMBER = 10;
+    /**
+     * <code>.GameStart gameStart = 10;</code>
+     * @return Whether the gameStart field is set.
+     */
+    @java.lang.Override
+    public boolean hasGameStart() {
+      return msgCase_ == 10;
+    }
+    /**
+     * <code>.GameStart gameStart = 10;</code>
+     * @return The gameStart.
+     */
+    @java.lang.Override
+    public Message.GameStart getGameStart() {
+      if (msgCase_ == 10) {
+         return (Message.GameStart) msg_;
+      }
+      return Message.GameStart.getDefaultInstance();
+    }
+    /**
+     * <code>.GameStart gameStart = 10;</code>
+     */
+    @java.lang.Override
+    public Message.GameStartOrBuilder getGameStartOrBuilder() {
+      if (msgCase_ == 10) {
+         return (Message.GameStart) msg_;
+      }
+      return Message.GameStart.getDefaultInstance();
+    }
+
+    public static final int PARTNERDISCONNECTED_FIELD_NUMBER = 11;
+    /**
+     * <code>.PartnerDisconnected partnerDisconnected = 11;</code>
+     * @return Whether the partnerDisconnected field is set.
+     */
+    @java.lang.Override
+    public boolean hasPartnerDisconnected() {
+      return msgCase_ == 11;
+    }
+    /**
+     * <code>.PartnerDisconnected partnerDisconnected = 11;</code>
+     * @return The partnerDisconnected.
+     */
+    @java.lang.Override
+    public Message.PartnerDisconnected getPartnerDisconnected() {
+      if (msgCase_ == 11) {
+         return (Message.PartnerDisconnected) msg_;
+      }
+      return Message.PartnerDisconnected.getDefaultInstance();
+    }
+    /**
+     * <code>.PartnerDisconnected partnerDisconnected = 11;</code>
+     */
+    @java.lang.Override
+    public Message.PartnerDisconnectedOrBuilder getPartnerDisconnectedOrBuilder() {
+      if (msgCase_ == 11) {
+         return (Message.PartnerDisconnected) msg_;
+      }
+      return Message.PartnerDisconnected.getDefaultInstance();
+    }
+
+    public static final int TURN_FIELD_NUMBER = 12;
+    /**
+     * <code>.Turn turn = 12;</code>
+     * @return Whether the turn field is set.
+     */
+    @java.lang.Override
+    public boolean hasTurn() {
+      return msgCase_ == 12;
+    }
+    /**
+     * <code>.Turn turn = 12;</code>
+     * @return The turn.
+     */
+    @java.lang.Override
+    public Message.Turn getTurn() {
+      if (msgCase_ == 12) {
+         return (Message.Turn) msg_;
+      }
+      return Message.Turn.getDefaultInstance();
+    }
+    /**
+     * <code>.Turn turn = 12;</code>
+     */
+    @java.lang.Override
+    public Message.TurnOrBuilder getTurnOrBuilder() {
+      if (msgCase_ == 12) {
+         return (Message.Turn) msg_;
+      }
+      return Message.Turn.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -730,6 +916,15 @@ public final class Message {
       }
       if (msgCase_ == 9) {
         output.writeMessage(9, (Message.GameResult) msg_);
+      }
+      if (msgCase_ == 10) {
+        output.writeMessage(10, (Message.GameStart) msg_);
+      }
+      if (msgCase_ == 11) {
+        output.writeMessage(11, (Message.PartnerDisconnected) msg_);
+      }
+      if (msgCase_ == 12) {
+        output.writeMessage(12, (Message.Turn) msg_);
       }
       unknownFields.writeTo(output);
     }
@@ -775,6 +970,18 @@ public final class Message {
       if (msgCase_ == 9) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(9, (Message.GameResult) msg_);
+      }
+      if (msgCase_ == 10) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, (Message.GameStart) msg_);
+      }
+      if (msgCase_ == 11) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(11, (Message.PartnerDisconnected) msg_);
+      }
+      if (msgCase_ == 12) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(12, (Message.Turn) msg_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -829,6 +1036,18 @@ public final class Message {
           if (!getGameResult()
               .equals(other.getGameResult())) return false;
           break;
+        case 10:
+          if (!getGameStart()
+              .equals(other.getGameStart())) return false;
+          break;
+        case 11:
+          if (!getPartnerDisconnected()
+              .equals(other.getPartnerDisconnected())) return false;
+          break;
+        case 12:
+          if (!getTurn()
+              .equals(other.getTurn())) return false;
+          break;
         case 0:
         default:
       }
@@ -879,6 +1098,18 @@ public final class Message {
         case 9:
           hash = (37 * hash) + GAMERESULT_FIELD_NUMBER;
           hash = (53 * hash) + getGameResult().hashCode();
+          break;
+        case 10:
+          hash = (37 * hash) + GAMESTART_FIELD_NUMBER;
+          hash = (53 * hash) + getGameStart().hashCode();
+          break;
+        case 11:
+          hash = (37 * hash) + PARTNERDISCONNECTED_FIELD_NUMBER;
+          hash = (53 * hash) + getPartnerDisconnected().hashCode();
+          break;
+        case 12:
+          hash = (37 * hash) + TURN_FIELD_NUMBER;
+          hash = (53 * hash) + getTurn().hashCode();
           break;
         case 0:
         default:
@@ -1107,6 +1338,27 @@ public final class Message {
             result.msg_ = gameResultBuilder_.build();
           }
         }
+        if (msgCase_ == 10) {
+          if (gameStartBuilder_ == null) {
+            result.msg_ = msg_;
+          } else {
+            result.msg_ = gameStartBuilder_.build();
+          }
+        }
+        if (msgCase_ == 11) {
+          if (partnerDisconnectedBuilder_ == null) {
+            result.msg_ = msg_;
+          } else {
+            result.msg_ = partnerDisconnectedBuilder_.build();
+          }
+        }
+        if (msgCase_ == 12) {
+          if (turnBuilder_ == null) {
+            result.msg_ = msg_;
+          } else {
+            result.msg_ = turnBuilder_.build();
+          }
+        }
         result.msgCase_ = msgCase_;
         onBuilt();
         return result;
@@ -1191,6 +1443,18 @@ public final class Message {
           }
           case GAMERESULT: {
             mergeGameResult(other.getGameResult());
+            break;
+          }
+          case GAMESTART: {
+            mergeGameStart(other.getGameStart());
+            break;
+          }
+          case PARTNERDISCONNECTED: {
+            mergePartnerDisconnected(other.getPartnerDisconnected());
+            break;
+          }
+          case TURN: {
+            mergeTurn(other.getTurn());
             break;
           }
           case MSG_NOT_SET: {
@@ -2509,6 +2773,429 @@ public final class Message {
         onChanged();;
         return gameResultBuilder_;
       }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          Message.GameStart, Message.GameStart.Builder, Message.GameStartOrBuilder> gameStartBuilder_;
+      /**
+       * <code>.GameStart gameStart = 10;</code>
+       * @return Whether the gameStart field is set.
+       */
+      @java.lang.Override
+      public boolean hasGameStart() {
+        return msgCase_ == 10;
+      }
+      /**
+       * <code>.GameStart gameStart = 10;</code>
+       * @return The gameStart.
+       */
+      @java.lang.Override
+      public Message.GameStart getGameStart() {
+        if (gameStartBuilder_ == null) {
+          if (msgCase_ == 10) {
+            return (Message.GameStart) msg_;
+          }
+          return Message.GameStart.getDefaultInstance();
+        } else {
+          if (msgCase_ == 10) {
+            return gameStartBuilder_.getMessage();
+          }
+          return Message.GameStart.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.GameStart gameStart = 10;</code>
+       */
+      public Builder setGameStart(Message.GameStart value) {
+        if (gameStartBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          msg_ = value;
+          onChanged();
+        } else {
+          gameStartBuilder_.setMessage(value);
+        }
+        msgCase_ = 10;
+        return this;
+      }
+      /**
+       * <code>.GameStart gameStart = 10;</code>
+       */
+      public Builder setGameStart(
+          Message.GameStart.Builder builderForValue) {
+        if (gameStartBuilder_ == null) {
+          msg_ = builderForValue.build();
+          onChanged();
+        } else {
+          gameStartBuilder_.setMessage(builderForValue.build());
+        }
+        msgCase_ = 10;
+        return this;
+      }
+      /**
+       * <code>.GameStart gameStart = 10;</code>
+       */
+      public Builder mergeGameStart(Message.GameStart value) {
+        if (gameStartBuilder_ == null) {
+          if (msgCase_ == 10 &&
+              msg_ != Message.GameStart.getDefaultInstance()) {
+            msg_ = Message.GameStart.newBuilder((Message.GameStart) msg_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            msg_ = value;
+          }
+          onChanged();
+        } else {
+          if (msgCase_ == 10) {
+            gameStartBuilder_.mergeFrom(value);
+          }
+          gameStartBuilder_.setMessage(value);
+        }
+        msgCase_ = 10;
+        return this;
+      }
+      /**
+       * <code>.GameStart gameStart = 10;</code>
+       */
+      public Builder clearGameStart() {
+        if (gameStartBuilder_ == null) {
+          if (msgCase_ == 10) {
+            msgCase_ = 0;
+            msg_ = null;
+            onChanged();
+          }
+        } else {
+          if (msgCase_ == 10) {
+            msgCase_ = 0;
+            msg_ = null;
+          }
+          gameStartBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.GameStart gameStart = 10;</code>
+       */
+      public Message.GameStart.Builder getGameStartBuilder() {
+        return getGameStartFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.GameStart gameStart = 10;</code>
+       */
+      @java.lang.Override
+      public Message.GameStartOrBuilder getGameStartOrBuilder() {
+        if ((msgCase_ == 10) && (gameStartBuilder_ != null)) {
+          return gameStartBuilder_.getMessageOrBuilder();
+        } else {
+          if (msgCase_ == 10) {
+            return (Message.GameStart) msg_;
+          }
+          return Message.GameStart.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.GameStart gameStart = 10;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          Message.GameStart, Message.GameStart.Builder, Message.GameStartOrBuilder> 
+          getGameStartFieldBuilder() {
+        if (gameStartBuilder_ == null) {
+          if (!(msgCase_ == 10)) {
+            msg_ = Message.GameStart.getDefaultInstance();
+          }
+          gameStartBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              Message.GameStart, Message.GameStart.Builder, Message.GameStartOrBuilder>(
+                  (Message.GameStart) msg_,
+                  getParentForChildren(),
+                  isClean());
+          msg_ = null;
+        }
+        msgCase_ = 10;
+        onChanged();;
+        return gameStartBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          Message.PartnerDisconnected, Message.PartnerDisconnected.Builder, Message.PartnerDisconnectedOrBuilder> partnerDisconnectedBuilder_;
+      /**
+       * <code>.PartnerDisconnected partnerDisconnected = 11;</code>
+       * @return Whether the partnerDisconnected field is set.
+       */
+      @java.lang.Override
+      public boolean hasPartnerDisconnected() {
+        return msgCase_ == 11;
+      }
+      /**
+       * <code>.PartnerDisconnected partnerDisconnected = 11;</code>
+       * @return The partnerDisconnected.
+       */
+      @java.lang.Override
+      public Message.PartnerDisconnected getPartnerDisconnected() {
+        if (partnerDisconnectedBuilder_ == null) {
+          if (msgCase_ == 11) {
+            return (Message.PartnerDisconnected) msg_;
+          }
+          return Message.PartnerDisconnected.getDefaultInstance();
+        } else {
+          if (msgCase_ == 11) {
+            return partnerDisconnectedBuilder_.getMessage();
+          }
+          return Message.PartnerDisconnected.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.PartnerDisconnected partnerDisconnected = 11;</code>
+       */
+      public Builder setPartnerDisconnected(Message.PartnerDisconnected value) {
+        if (partnerDisconnectedBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          msg_ = value;
+          onChanged();
+        } else {
+          partnerDisconnectedBuilder_.setMessage(value);
+        }
+        msgCase_ = 11;
+        return this;
+      }
+      /**
+       * <code>.PartnerDisconnected partnerDisconnected = 11;</code>
+       */
+      public Builder setPartnerDisconnected(
+          Message.PartnerDisconnected.Builder builderForValue) {
+        if (partnerDisconnectedBuilder_ == null) {
+          msg_ = builderForValue.build();
+          onChanged();
+        } else {
+          partnerDisconnectedBuilder_.setMessage(builderForValue.build());
+        }
+        msgCase_ = 11;
+        return this;
+      }
+      /**
+       * <code>.PartnerDisconnected partnerDisconnected = 11;</code>
+       */
+      public Builder mergePartnerDisconnected(Message.PartnerDisconnected value) {
+        if (partnerDisconnectedBuilder_ == null) {
+          if (msgCase_ == 11 &&
+              msg_ != Message.PartnerDisconnected.getDefaultInstance()) {
+            msg_ = Message.PartnerDisconnected.newBuilder((Message.PartnerDisconnected) msg_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            msg_ = value;
+          }
+          onChanged();
+        } else {
+          if (msgCase_ == 11) {
+            partnerDisconnectedBuilder_.mergeFrom(value);
+          }
+          partnerDisconnectedBuilder_.setMessage(value);
+        }
+        msgCase_ = 11;
+        return this;
+      }
+      /**
+       * <code>.PartnerDisconnected partnerDisconnected = 11;</code>
+       */
+      public Builder clearPartnerDisconnected() {
+        if (partnerDisconnectedBuilder_ == null) {
+          if (msgCase_ == 11) {
+            msgCase_ = 0;
+            msg_ = null;
+            onChanged();
+          }
+        } else {
+          if (msgCase_ == 11) {
+            msgCase_ = 0;
+            msg_ = null;
+          }
+          partnerDisconnectedBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.PartnerDisconnected partnerDisconnected = 11;</code>
+       */
+      public Message.PartnerDisconnected.Builder getPartnerDisconnectedBuilder() {
+        return getPartnerDisconnectedFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.PartnerDisconnected partnerDisconnected = 11;</code>
+       */
+      @java.lang.Override
+      public Message.PartnerDisconnectedOrBuilder getPartnerDisconnectedOrBuilder() {
+        if ((msgCase_ == 11) && (partnerDisconnectedBuilder_ != null)) {
+          return partnerDisconnectedBuilder_.getMessageOrBuilder();
+        } else {
+          if (msgCase_ == 11) {
+            return (Message.PartnerDisconnected) msg_;
+          }
+          return Message.PartnerDisconnected.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.PartnerDisconnected partnerDisconnected = 11;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          Message.PartnerDisconnected, Message.PartnerDisconnected.Builder, Message.PartnerDisconnectedOrBuilder> 
+          getPartnerDisconnectedFieldBuilder() {
+        if (partnerDisconnectedBuilder_ == null) {
+          if (!(msgCase_ == 11)) {
+            msg_ = Message.PartnerDisconnected.getDefaultInstance();
+          }
+          partnerDisconnectedBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              Message.PartnerDisconnected, Message.PartnerDisconnected.Builder, Message.PartnerDisconnectedOrBuilder>(
+                  (Message.PartnerDisconnected) msg_,
+                  getParentForChildren(),
+                  isClean());
+          msg_ = null;
+        }
+        msgCase_ = 11;
+        onChanged();;
+        return partnerDisconnectedBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          Message.Turn, Message.Turn.Builder, Message.TurnOrBuilder> turnBuilder_;
+      /**
+       * <code>.Turn turn = 12;</code>
+       * @return Whether the turn field is set.
+       */
+      @java.lang.Override
+      public boolean hasTurn() {
+        return msgCase_ == 12;
+      }
+      /**
+       * <code>.Turn turn = 12;</code>
+       * @return The turn.
+       */
+      @java.lang.Override
+      public Message.Turn getTurn() {
+        if (turnBuilder_ == null) {
+          if (msgCase_ == 12) {
+            return (Message.Turn) msg_;
+          }
+          return Message.Turn.getDefaultInstance();
+        } else {
+          if (msgCase_ == 12) {
+            return turnBuilder_.getMessage();
+          }
+          return Message.Turn.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.Turn turn = 12;</code>
+       */
+      public Builder setTurn(Message.Turn value) {
+        if (turnBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          msg_ = value;
+          onChanged();
+        } else {
+          turnBuilder_.setMessage(value);
+        }
+        msgCase_ = 12;
+        return this;
+      }
+      /**
+       * <code>.Turn turn = 12;</code>
+       */
+      public Builder setTurn(
+          Message.Turn.Builder builderForValue) {
+        if (turnBuilder_ == null) {
+          msg_ = builderForValue.build();
+          onChanged();
+        } else {
+          turnBuilder_.setMessage(builderForValue.build());
+        }
+        msgCase_ = 12;
+        return this;
+      }
+      /**
+       * <code>.Turn turn = 12;</code>
+       */
+      public Builder mergeTurn(Message.Turn value) {
+        if (turnBuilder_ == null) {
+          if (msgCase_ == 12 &&
+              msg_ != Message.Turn.getDefaultInstance()) {
+            msg_ = Message.Turn.newBuilder((Message.Turn) msg_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            msg_ = value;
+          }
+          onChanged();
+        } else {
+          if (msgCase_ == 12) {
+            turnBuilder_.mergeFrom(value);
+          }
+          turnBuilder_.setMessage(value);
+        }
+        msgCase_ = 12;
+        return this;
+      }
+      /**
+       * <code>.Turn turn = 12;</code>
+       */
+      public Builder clearTurn() {
+        if (turnBuilder_ == null) {
+          if (msgCase_ == 12) {
+            msgCase_ = 0;
+            msg_ = null;
+            onChanged();
+          }
+        } else {
+          if (msgCase_ == 12) {
+            msgCase_ = 0;
+            msg_ = null;
+          }
+          turnBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.Turn turn = 12;</code>
+       */
+      public Message.Turn.Builder getTurnBuilder() {
+        return getTurnFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.Turn turn = 12;</code>
+       */
+      @java.lang.Override
+      public Message.TurnOrBuilder getTurnOrBuilder() {
+        if ((msgCase_ == 12) && (turnBuilder_ != null)) {
+          return turnBuilder_.getMessageOrBuilder();
+        } else {
+          if (msgCase_ == 12) {
+            return (Message.Turn) msg_;
+          }
+          return Message.Turn.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.Turn turn = 12;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          Message.Turn, Message.Turn.Builder, Message.TurnOrBuilder> 
+          getTurnFieldBuilder() {
+        if (turnBuilder_ == null) {
+          if (!(msgCase_ == 12)) {
+            msg_ = Message.Turn.getDefaultInstance();
+          }
+          turnBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              Message.Turn, Message.Turn.Builder, Message.TurnOrBuilder>(
+                  (Message.Turn) msg_,
+                  getParentForChildren(),
+                  isClean());
+          msg_ = null;
+        }
+        msgCase_ = 12;
+        onChanged();;
+        return turnBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -3139,6 +3826,12 @@ public final class Message {
      * @return The success.
      */
     boolean getSuccess();
+
+    /**
+     * <code>int32 clientNumber = 2;</code>
+     * @return The clientNumber.
+     */
+    int getClientNumber();
   }
   /**
    * Protobuf type {@code RegisterResponse}
@@ -3190,6 +3883,11 @@ public final class Message {
               success_ = input.readBool();
               break;
             }
+            case 16: {
+
+              clientNumber_ = input.readInt32();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -3233,6 +3931,17 @@ public final class Message {
       return success_;
     }
 
+    public static final int CLIENTNUMBER_FIELD_NUMBER = 2;
+    private int clientNumber_;
+    /**
+     * <code>int32 clientNumber = 2;</code>
+     * @return The clientNumber.
+     */
+    @java.lang.Override
+    public int getClientNumber() {
+      return clientNumber_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3250,6 +3959,9 @@ public final class Message {
       if (success_ != false) {
         output.writeBool(1, success_);
       }
+      if (clientNumber_ != 0) {
+        output.writeInt32(2, clientNumber_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -3262,6 +3974,10 @@ public final class Message {
       if (success_ != false) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(1, success_);
+      }
+      if (clientNumber_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, clientNumber_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3280,6 +3996,8 @@ public final class Message {
 
       if (getSuccess()
           != other.getSuccess()) return false;
+      if (getClientNumber()
+          != other.getClientNumber()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3294,6 +4012,8 @@ public final class Message {
       hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getSuccess());
+      hash = (37 * hash) + CLIENTNUMBER_FIELD_NUMBER;
+      hash = (53 * hash) + getClientNumber();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3429,6 +4149,8 @@ public final class Message {
         super.clear();
         success_ = false;
 
+        clientNumber_ = 0;
+
         return this;
       }
 
@@ -3456,6 +4178,7 @@ public final class Message {
       public Message.RegisterResponse buildPartial() {
         Message.RegisterResponse result = new Message.RegisterResponse(this);
         result.success_ = success_;
+        result.clientNumber_ = clientNumber_;
         onBuilt();
         return result;
       }
@@ -3506,6 +4229,9 @@ public final class Message {
         if (other == Message.RegisterResponse.getDefaultInstance()) return this;
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
+        }
+        if (other.getClientNumber() != 0) {
+          setClientNumber(other.getClientNumber());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3563,6 +4289,37 @@ public final class Message {
       public Builder clearSuccess() {
         
         success_ = false;
+        onChanged();
+        return this;
+      }
+
+      private int clientNumber_ ;
+      /**
+       * <code>int32 clientNumber = 2;</code>
+       * @return The clientNumber.
+       */
+      @java.lang.Override
+      public int getClientNumber() {
+        return clientNumber_;
+      }
+      /**
+       * <code>int32 clientNumber = 2;</code>
+       * @param value The clientNumber to set.
+       * @return This builder for chaining.
+       */
+      public Builder setClientNumber(int value) {
+        
+        clientNumber_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 clientNumber = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearClientNumber() {
+        
+        clientNumber_ = 0;
         onChanged();
         return this;
       }
@@ -6237,6 +6994,1610 @@ public final class Message {
 
   }
 
+  public interface GameStartOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:GameStart)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 noughts = 1;</code>
+     * @return The noughts.
+     */
+    int getNoughts();
+
+    /**
+     * <code>int32 crosses = 2;</code>
+     * @return The crosses.
+     */
+    int getCrosses();
+  }
+  /**
+   * Protobuf type {@code GameStart}
+   */
+  public static final class GameStart extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:GameStart)
+      GameStartOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GameStart.newBuilder() to construct.
+    private GameStart(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GameStart() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GameStart();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GameStart(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              noughts_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              crosses_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Message.internal_static_GameStart_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Message.internal_static_GameStart_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Message.GameStart.class, Message.GameStart.Builder.class);
+    }
+
+    public static final int NOUGHTS_FIELD_NUMBER = 1;
+    private int noughts_;
+    /**
+     * <code>int32 noughts = 1;</code>
+     * @return The noughts.
+     */
+    @java.lang.Override
+    public int getNoughts() {
+      return noughts_;
+    }
+
+    public static final int CROSSES_FIELD_NUMBER = 2;
+    private int crosses_;
+    /**
+     * <code>int32 crosses = 2;</code>
+     * @return The crosses.
+     */
+    @java.lang.Override
+    public int getCrosses() {
+      return crosses_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (noughts_ != 0) {
+        output.writeInt32(1, noughts_);
+      }
+      if (crosses_ != 0) {
+        output.writeInt32(2, crosses_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (noughts_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, noughts_);
+      }
+      if (crosses_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, crosses_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof Message.GameStart)) {
+        return super.equals(obj);
+      }
+      Message.GameStart other = (Message.GameStart) obj;
+
+      if (getNoughts()
+          != other.getNoughts()) return false;
+      if (getCrosses()
+          != other.getCrosses()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NOUGHTS_FIELD_NUMBER;
+      hash = (53 * hash) + getNoughts();
+      hash = (37 * hash) + CROSSES_FIELD_NUMBER;
+      hash = (53 * hash) + getCrosses();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static Message.GameStart parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.GameStart parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.GameStart parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.GameStart parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.GameStart parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.GameStart parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.GameStart parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Message.GameStart parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Message.GameStart parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static Message.GameStart parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Message.GameStart parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Message.GameStart parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Message.GameStart prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code GameStart}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:GameStart)
+        Message.GameStartOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Message.internal_static_GameStart_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Message.internal_static_GameStart_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Message.GameStart.class, Message.GameStart.Builder.class);
+      }
+
+      // Construct using Message.GameStart.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        noughts_ = 0;
+
+        crosses_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Message.internal_static_GameStart_descriptor;
+      }
+
+      @java.lang.Override
+      public Message.GameStart getDefaultInstanceForType() {
+        return Message.GameStart.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public Message.GameStart build() {
+        Message.GameStart result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public Message.GameStart buildPartial() {
+        Message.GameStart result = new Message.GameStart(this);
+        result.noughts_ = noughts_;
+        result.crosses_ = crosses_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Message.GameStart) {
+          return mergeFrom((Message.GameStart)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Message.GameStart other) {
+        if (other == Message.GameStart.getDefaultInstance()) return this;
+        if (other.getNoughts() != 0) {
+          setNoughts(other.getNoughts());
+        }
+        if (other.getCrosses() != 0) {
+          setCrosses(other.getCrosses());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Message.GameStart parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Message.GameStart) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int noughts_ ;
+      /**
+       * <code>int32 noughts = 1;</code>
+       * @return The noughts.
+       */
+      @java.lang.Override
+      public int getNoughts() {
+        return noughts_;
+      }
+      /**
+       * <code>int32 noughts = 1;</code>
+       * @param value The noughts to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNoughts(int value) {
+        
+        noughts_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 noughts = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNoughts() {
+        
+        noughts_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int crosses_ ;
+      /**
+       * <code>int32 crosses = 2;</code>
+       * @return The crosses.
+       */
+      @java.lang.Override
+      public int getCrosses() {
+        return crosses_;
+      }
+      /**
+       * <code>int32 crosses = 2;</code>
+       * @param value The crosses to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCrosses(int value) {
+        
+        crosses_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 crosses = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCrosses() {
+        
+        crosses_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:GameStart)
+    }
+
+    // @@protoc_insertion_point(class_scope:GameStart)
+    private static final Message.GameStart DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Message.GameStart();
+    }
+
+    public static Message.GameStart getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GameStart>
+        PARSER = new com.google.protobuf.AbstractParser<GameStart>() {
+      @java.lang.Override
+      public GameStart parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GameStart(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GameStart> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GameStart> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public Message.GameStart getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TurnOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Turn)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 turn = 1;</code>
+     * @return The turn.
+     */
+    int getTurn();
+  }
+  /**
+   * Protobuf type {@code Turn}
+   */
+  public static final class Turn extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Turn)
+      TurnOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Turn.newBuilder() to construct.
+    private Turn(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Turn() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Turn();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Turn(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              turn_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Message.internal_static_Turn_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Message.internal_static_Turn_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Message.Turn.class, Message.Turn.Builder.class);
+    }
+
+    public static final int TURN_FIELD_NUMBER = 1;
+    private int turn_;
+    /**
+     * <code>int32 turn = 1;</code>
+     * @return The turn.
+     */
+    @java.lang.Override
+    public int getTurn() {
+      return turn_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (turn_ != 0) {
+        output.writeInt32(1, turn_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (turn_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, turn_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof Message.Turn)) {
+        return super.equals(obj);
+      }
+      Message.Turn other = (Message.Turn) obj;
+
+      if (getTurn()
+          != other.getTurn()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TURN_FIELD_NUMBER;
+      hash = (53 * hash) + getTurn();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static Message.Turn parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.Turn parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.Turn parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.Turn parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.Turn parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.Turn parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.Turn parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Message.Turn parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Message.Turn parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static Message.Turn parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Message.Turn parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Message.Turn parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Message.Turn prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Turn}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Turn)
+        Message.TurnOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Message.internal_static_Turn_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Message.internal_static_Turn_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Message.Turn.class, Message.Turn.Builder.class);
+      }
+
+      // Construct using Message.Turn.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        turn_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Message.internal_static_Turn_descriptor;
+      }
+
+      @java.lang.Override
+      public Message.Turn getDefaultInstanceForType() {
+        return Message.Turn.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public Message.Turn build() {
+        Message.Turn result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public Message.Turn buildPartial() {
+        Message.Turn result = new Message.Turn(this);
+        result.turn_ = turn_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Message.Turn) {
+          return mergeFrom((Message.Turn)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Message.Turn other) {
+        if (other == Message.Turn.getDefaultInstance()) return this;
+        if (other.getTurn() != 0) {
+          setTurn(other.getTurn());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Message.Turn parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Message.Turn) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int turn_ ;
+      /**
+       * <code>int32 turn = 1;</code>
+       * @return The turn.
+       */
+      @java.lang.Override
+      public int getTurn() {
+        return turn_;
+      }
+      /**
+       * <code>int32 turn = 1;</code>
+       * @param value The turn to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTurn(int value) {
+        
+        turn_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 turn = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTurn() {
+        
+        turn_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Turn)
+    }
+
+    // @@protoc_insertion_point(class_scope:Turn)
+    private static final Message.Turn DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Message.Turn();
+    }
+
+    public static Message.Turn getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Turn>
+        PARSER = new com.google.protobuf.AbstractParser<Turn>() {
+      @java.lang.Override
+      public Turn parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Turn(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Turn> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Turn> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public Message.Turn getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PartnerDisconnectedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:PartnerDisconnected)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 partner = 1;</code>
+     * @return The partner.
+     */
+    int getPartner();
+
+    /**
+     * <code>int32 client = 2;</code>
+     * @return The client.
+     */
+    int getClient();
+  }
+  /**
+   * Protobuf type {@code PartnerDisconnected}
+   */
+  public static final class PartnerDisconnected extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:PartnerDisconnected)
+      PartnerDisconnectedOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PartnerDisconnected.newBuilder() to construct.
+    private PartnerDisconnected(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PartnerDisconnected() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PartnerDisconnected();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PartnerDisconnected(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              partner_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              client_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Message.internal_static_PartnerDisconnected_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Message.internal_static_PartnerDisconnected_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Message.PartnerDisconnected.class, Message.PartnerDisconnected.Builder.class);
+    }
+
+    public static final int PARTNER_FIELD_NUMBER = 1;
+    private int partner_;
+    /**
+     * <code>int32 partner = 1;</code>
+     * @return The partner.
+     */
+    @java.lang.Override
+    public int getPartner() {
+      return partner_;
+    }
+
+    public static final int CLIENT_FIELD_NUMBER = 2;
+    private int client_;
+    /**
+     * <code>int32 client = 2;</code>
+     * @return The client.
+     */
+    @java.lang.Override
+    public int getClient() {
+      return client_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (partner_ != 0) {
+        output.writeInt32(1, partner_);
+      }
+      if (client_ != 0) {
+        output.writeInt32(2, client_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (partner_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, partner_);
+      }
+      if (client_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, client_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof Message.PartnerDisconnected)) {
+        return super.equals(obj);
+      }
+      Message.PartnerDisconnected other = (Message.PartnerDisconnected) obj;
+
+      if (getPartner()
+          != other.getPartner()) return false;
+      if (getClient()
+          != other.getClient()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + PARTNER_FIELD_NUMBER;
+      hash = (53 * hash) + getPartner();
+      hash = (37 * hash) + CLIENT_FIELD_NUMBER;
+      hash = (53 * hash) + getClient();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static Message.PartnerDisconnected parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.PartnerDisconnected parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.PartnerDisconnected parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.PartnerDisconnected parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.PartnerDisconnected parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Message.PartnerDisconnected parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Message.PartnerDisconnected parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Message.PartnerDisconnected parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Message.PartnerDisconnected parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static Message.PartnerDisconnected parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Message.PartnerDisconnected parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Message.PartnerDisconnected parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Message.PartnerDisconnected prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code PartnerDisconnected}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:PartnerDisconnected)
+        Message.PartnerDisconnectedOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Message.internal_static_PartnerDisconnected_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Message.internal_static_PartnerDisconnected_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Message.PartnerDisconnected.class, Message.PartnerDisconnected.Builder.class);
+      }
+
+      // Construct using Message.PartnerDisconnected.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        partner_ = 0;
+
+        client_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Message.internal_static_PartnerDisconnected_descriptor;
+      }
+
+      @java.lang.Override
+      public Message.PartnerDisconnected getDefaultInstanceForType() {
+        return Message.PartnerDisconnected.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public Message.PartnerDisconnected build() {
+        Message.PartnerDisconnected result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public Message.PartnerDisconnected buildPartial() {
+        Message.PartnerDisconnected result = new Message.PartnerDisconnected(this);
+        result.partner_ = partner_;
+        result.client_ = client_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Message.PartnerDisconnected) {
+          return mergeFrom((Message.PartnerDisconnected)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Message.PartnerDisconnected other) {
+        if (other == Message.PartnerDisconnected.getDefaultInstance()) return this;
+        if (other.getPartner() != 0) {
+          setPartner(other.getPartner());
+        }
+        if (other.getClient() != 0) {
+          setClient(other.getClient());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Message.PartnerDisconnected parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Message.PartnerDisconnected) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int partner_ ;
+      /**
+       * <code>int32 partner = 1;</code>
+       * @return The partner.
+       */
+      @java.lang.Override
+      public int getPartner() {
+        return partner_;
+      }
+      /**
+       * <code>int32 partner = 1;</code>
+       * @param value The partner to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPartner(int value) {
+        
+        partner_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 partner = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPartner() {
+        
+        partner_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int client_ ;
+      /**
+       * <code>int32 client = 2;</code>
+       * @return The client.
+       */
+      @java.lang.Override
+      public int getClient() {
+        return client_;
+      }
+      /**
+       * <code>int32 client = 2;</code>
+       * @param value The client to set.
+       * @return This builder for chaining.
+       */
+      public Builder setClient(int value) {
+        
+        client_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 client = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearClient() {
+        
+        client_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:PartnerDisconnected)
+    }
+
+    // @@protoc_insertion_point(class_scope:PartnerDisconnected)
+    private static final Message.PartnerDisconnected DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Message.PartnerDisconnected();
+    }
+
+    public static Message.PartnerDisconnected getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PartnerDisconnected>
+        PARSER = new com.google.protobuf.AbstractParser<PartnerDisconnected>() {
+      @java.lang.Override
+      public PartnerDisconnected parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PartnerDisconnected(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<PartnerDisconnected> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PartnerDisconnected> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public Message.PartnerDisconnected getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface MoveOrBuilder extends
       // @@protoc_insertion_point(interface_extends:Move)
       com.google.protobuf.MessageOrBuilder {
@@ -6876,21 +9237,15 @@ public final class Message {
     int getFrom();
 
     /**
-     * <code>bool correct = 2;</code>
-     * @return The correct.
+     * <code>.MoveResponse.Status status = 2;</code>
+     * @return The enum numeric value on the wire for status.
      */
-    boolean getCorrect();
-
+    int getStatusValue();
     /**
-     * <code>.MoveResponse.MoveRejectReason reason = 3;</code>
-     * @return The enum numeric value on the wire for reason.
+     * <code>.MoveResponse.Status status = 2;</code>
+     * @return The status.
      */
-    int getReasonValue();
-    /**
-     * <code>.MoveResponse.MoveRejectReason reason = 3;</code>
-     * @return The reason.
-     */
-    Message.MoveResponse.MoveRejectReason getReason();
+    Message.MoveResponse.Status getStatus();
   }
   /**
    * Protobuf type {@code MoveResponse}
@@ -6905,7 +9260,7 @@ public final class Message {
       super(builder);
     }
     private MoveResponse() {
-      reason_ = 0;
+      status_ = 0;
     }
 
     @java.lang.Override
@@ -6944,14 +9299,9 @@ public final class Message {
               break;
             }
             case 16: {
-
-              correct_ = input.readBool();
-              break;
-            }
-            case 24: {
               int rawValue = input.readEnum();
 
-              reason_ = rawValue;
+              status_ = rawValue;
               break;
             }
             default: {
@@ -6987,14 +9337,14 @@ public final class Message {
     }
 
     /**
-     * Protobuf enum {@code MoveResponse.MoveRejectReason}
+     * Protobuf enum {@code MoveResponse.Status}
      */
-    public enum MoveRejectReason
+    public enum Status
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>NONE = 0;</code>
+       * <code>OK = 0;</code>
        */
-      NONE(0),
+      OK(0),
       /**
        * <code>WRONG_POS = 1;</code>
        */
@@ -7007,9 +9357,9 @@ public final class Message {
       ;
 
       /**
-       * <code>NONE = 0;</code>
+       * <code>OK = 0;</code>
        */
-      public static final int NONE_VALUE = 0;
+      public static final int OK_VALUE = 0;
       /**
        * <code>WRONG_POS = 1;</code>
        */
@@ -7034,7 +9384,7 @@ public final class Message {
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
-      public static MoveRejectReason valueOf(int value) {
+      public static Status valueOf(int value) {
         return forNumber(value);
       }
 
@@ -7042,24 +9392,24 @@ public final class Message {
        * @param value The numeric wire value of the corresponding enum entry.
        * @return The enum associated with the given numeric wire value.
        */
-      public static MoveRejectReason forNumber(int value) {
+      public static Status forNumber(int value) {
         switch (value) {
-          case 0: return NONE;
+          case 0: return OK;
           case 1: return WRONG_POS;
           case 2: return WRONG_TURN;
           default: return null;
         }
       }
 
-      public static com.google.protobuf.Internal.EnumLiteMap<MoveRejectReason>
+      public static com.google.protobuf.Internal.EnumLiteMap<Status>
           internalGetValueMap() {
         return internalValueMap;
       }
       private static final com.google.protobuf.Internal.EnumLiteMap<
-          MoveRejectReason> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<MoveRejectReason>() {
-              public MoveRejectReason findValueByNumber(int number) {
-                return MoveRejectReason.forNumber(number);
+          Status> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Status>() {
+              public Status findValueByNumber(int number) {
+                return Status.forNumber(number);
               }
             };
 
@@ -7080,9 +9430,9 @@ public final class Message {
         return Message.MoveResponse.getDescriptor().getEnumTypes().get(0);
       }
 
-      private static final MoveRejectReason[] VALUES = values();
+      private static final Status[] VALUES = values();
 
-      public static MoveRejectReason valueOf(
+      public static Status valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
           throw new java.lang.IllegalArgumentException(
@@ -7096,11 +9446,11 @@ public final class Message {
 
       private final int value;
 
-      private MoveRejectReason(int value) {
+      private Status(int value) {
         this.value = value;
       }
 
-      // @@protoc_insertion_point(enum_scope:MoveResponse.MoveRejectReason)
+      // @@protoc_insertion_point(enum_scope:MoveResponse.Status)
     }
 
     public static final int FROM_FIELD_NUMBER = 1;
@@ -7114,34 +9464,23 @@ public final class Message {
       return from_;
     }
 
-    public static final int CORRECT_FIELD_NUMBER = 2;
-    private boolean correct_;
+    public static final int STATUS_FIELD_NUMBER = 2;
+    private int status_;
     /**
-     * <code>bool correct = 2;</code>
-     * @return The correct.
+     * <code>.MoveResponse.Status status = 2;</code>
+     * @return The enum numeric value on the wire for status.
      */
-    @java.lang.Override
-    public boolean getCorrect() {
-      return correct_;
-    }
-
-    public static final int REASON_FIELD_NUMBER = 3;
-    private int reason_;
-    /**
-     * <code>.MoveResponse.MoveRejectReason reason = 3;</code>
-     * @return The enum numeric value on the wire for reason.
-     */
-    @java.lang.Override public int getReasonValue() {
-      return reason_;
+    @java.lang.Override public int getStatusValue() {
+      return status_;
     }
     /**
-     * <code>.MoveResponse.MoveRejectReason reason = 3;</code>
-     * @return The reason.
+     * <code>.MoveResponse.Status status = 2;</code>
+     * @return The status.
      */
-    @java.lang.Override public Message.MoveResponse.MoveRejectReason getReason() {
+    @java.lang.Override public Message.MoveResponse.Status getStatus() {
       @SuppressWarnings("deprecation")
-      Message.MoveResponse.MoveRejectReason result = Message.MoveResponse.MoveRejectReason.valueOf(reason_);
-      return result == null ? Message.MoveResponse.MoveRejectReason.UNRECOGNIZED : result;
+      Message.MoveResponse.Status result = Message.MoveResponse.Status.valueOf(status_);
+      return result == null ? Message.MoveResponse.Status.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -7161,11 +9500,8 @@ public final class Message {
       if (from_ != 0) {
         output.writeInt32(1, from_);
       }
-      if (correct_ != false) {
-        output.writeBool(2, correct_);
-      }
-      if (reason_ != Message.MoveResponse.MoveRejectReason.NONE.getNumber()) {
-        output.writeEnum(3, reason_);
+      if (status_ != Message.MoveResponse.Status.OK.getNumber()) {
+        output.writeEnum(2, status_);
       }
       unknownFields.writeTo(output);
     }
@@ -7180,13 +9516,9 @@ public final class Message {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, from_);
       }
-      if (correct_ != false) {
+      if (status_ != Message.MoveResponse.Status.OK.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(2, correct_);
-      }
-      if (reason_ != Message.MoveResponse.MoveRejectReason.NONE.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(3, reason_);
+          .computeEnumSize(2, status_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7205,9 +9537,7 @@ public final class Message {
 
       if (getFrom()
           != other.getFrom()) return false;
-      if (getCorrect()
-          != other.getCorrect()) return false;
-      if (reason_ != other.reason_) return false;
+      if (status_ != other.status_) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -7221,11 +9551,8 @@ public final class Message {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + FROM_FIELD_NUMBER;
       hash = (53 * hash) + getFrom();
-      hash = (37 * hash) + CORRECT_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getCorrect());
-      hash = (37 * hash) + REASON_FIELD_NUMBER;
-      hash = (53 * hash) + reason_;
+      hash = (37 * hash) + STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + status_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -7361,9 +9688,7 @@ public final class Message {
         super.clear();
         from_ = 0;
 
-        correct_ = false;
-
-        reason_ = 0;
+        status_ = 0;
 
         return this;
       }
@@ -7392,8 +9717,7 @@ public final class Message {
       public Message.MoveResponse buildPartial() {
         Message.MoveResponse result = new Message.MoveResponse(this);
         result.from_ = from_;
-        result.correct_ = correct_;
-        result.reason_ = reason_;
+        result.status_ = status_;
         onBuilt();
         return result;
       }
@@ -7445,11 +9769,8 @@ public final class Message {
         if (other.getFrom() != 0) {
           setFrom(other.getFrom());
         }
-        if (other.getCorrect() != false) {
-          setCorrect(other.getCorrect());
-        }
-        if (other.reason_ != 0) {
-          setReasonValue(other.getReasonValue());
+        if (other.status_ != 0) {
+          setStatusValue(other.getStatusValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -7511,87 +9832,56 @@ public final class Message {
         return this;
       }
 
-      private boolean correct_ ;
+      private int status_ = 0;
       /**
-       * <code>bool correct = 2;</code>
-       * @return The correct.
+       * <code>.MoveResponse.Status status = 2;</code>
+       * @return The enum numeric value on the wire for status.
+       */
+      @java.lang.Override public int getStatusValue() {
+        return status_;
+      }
+      /**
+       * <code>.MoveResponse.Status status = 2;</code>
+       * @param value The enum numeric value on the wire for status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatusValue(int value) {
+        
+        status_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.MoveResponse.Status status = 2;</code>
+       * @return The status.
        */
       @java.lang.Override
-      public boolean getCorrect() {
-        return correct_;
-      }
-      /**
-       * <code>bool correct = 2;</code>
-       * @param value The correct to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCorrect(boolean value) {
-        
-        correct_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bool correct = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCorrect() {
-        
-        correct_ = false;
-        onChanged();
-        return this;
-      }
-
-      private int reason_ = 0;
-      /**
-       * <code>.MoveResponse.MoveRejectReason reason = 3;</code>
-       * @return The enum numeric value on the wire for reason.
-       */
-      @java.lang.Override public int getReasonValue() {
-        return reason_;
-      }
-      /**
-       * <code>.MoveResponse.MoveRejectReason reason = 3;</code>
-       * @param value The enum numeric value on the wire for reason to set.
-       * @return This builder for chaining.
-       */
-      public Builder setReasonValue(int value) {
-        
-        reason_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.MoveResponse.MoveRejectReason reason = 3;</code>
-       * @return The reason.
-       */
-      @java.lang.Override
-      public Message.MoveResponse.MoveRejectReason getReason() {
+      public Message.MoveResponse.Status getStatus() {
         @SuppressWarnings("deprecation")
-        Message.MoveResponse.MoveRejectReason result = Message.MoveResponse.MoveRejectReason.valueOf(reason_);
-        return result == null ? Message.MoveResponse.MoveRejectReason.UNRECOGNIZED : result;
+        Message.MoveResponse.Status result = Message.MoveResponse.Status.valueOf(status_);
+        return result == null ? Message.MoveResponse.Status.UNRECOGNIZED : result;
       }
       /**
-       * <code>.MoveResponse.MoveRejectReason reason = 3;</code>
-       * @param value The reason to set.
+       * <code>.MoveResponse.Status status = 2;</code>
+       * @param value The status to set.
        * @return This builder for chaining.
        */
-      public Builder setReason(Message.MoveResponse.MoveRejectReason value) {
+      public Builder setStatus(Message.MoveResponse.Status value) {
         if (value == null) {
           throw new NullPointerException();
         }
         
-        reason_ = value.getNumber();
+        status_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>.MoveResponse.MoveRejectReason reason = 3;</code>
+       * <code>.MoveResponse.Status status = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearReason() {
+      public Builder clearStatus() {
         
-        reason_ = 0;
+        status_ = 0;
         onChanged();
         return this;
       }
@@ -7764,6 +10054,10 @@ public final class Message {
        * <code>DRAW = 2;</code>
        */
       DRAW(2),
+      /**
+       * <code>NONE = 3;</code>
+       */
+      NONE(3),
       UNRECOGNIZED(-1),
       ;
 
@@ -7779,6 +10073,10 @@ public final class Message {
        * <code>DRAW = 2;</code>
        */
       public static final int DRAW_VALUE = 2;
+      /**
+       * <code>NONE = 3;</code>
+       */
+      public static final int NONE_VALUE = 3;
 
 
       public final int getNumber() {
@@ -7808,6 +10106,7 @@ public final class Message {
           case 0: return NOUGHTS;
           case 1: return CROSSES;
           case 2: return DRAW;
+          case 3: return NONE;
           default: return null;
         }
       }
@@ -9034,6 +11333,21 @@ public final class Message {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_GameInvitationResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GameStart_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GameStart_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Turn_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Turn_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_PartnerDisconnected_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_PartnerDisconnected_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Move_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -9062,7 +11376,7 @@ public final class Message {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\024wrappermessage.proto\"\374\002\n\016WrapperMessag" +
+      "\n\024wrappermessage.proto\"\351\003\n\016WrapperMessag" +
       "e\022\035\n\010register\030\001 \001(\0132\t.RegisterH\000\022#\n\013clie" +
       "ntsList\030\002 \001(\0132\014.ClientsListH\000\022)\n\016gameInv" +
       "itation\030\003 \001(\0132\017.GameInvitationH\000\022\025\n\004move" +
@@ -9071,23 +11385,29 @@ public final class Message {
       " \001(\0132\021.RegisterResponseH\000\0229\n\026gameInvitat" +
       "ionResponse\030\007 \001(\0132\027.GameInvitationRespon" +
       "seH\000\022%\n\014moveResponse\030\010 \001(\0132\r.MoveRespons" +
-      "eH\000\022!\n\ngameResult\030\t \001(\0132\013.GameResultH\000B\005" +
-      "\n\003msg\"\030\n\010Register\022\014\n\004nick\030\001 \001(\t\"#\n\020Regis" +
-      "terResponse\022\017\n\007success\030\001 \001(\010\"\"\n\006Client\022\014" +
-      "\n\004nick\030\001 \001(\t\022\n\n\002id\030\002 \001(\005\"\'\n\013ClientsList\022" +
-      "\030\n\007clients\030\001 \003(\0132\007.Client\"*\n\016GameInvitat" +
-      "ion\022\014\n\004from\030\001 \001(\005\022\n\n\002to\030\002 \001(\005\"D\n\026GameInv" +
-      "itationResponse\022\014\n\004from\030\001 \001(\005\022\n\n\002to\030\002 \001(" +
-      "\005\022\020\n\010accepted\030\003 \001(\010\"*\n\004Move\022\014\n\004from\030\001 \001(" +
-      "\005\022\t\n\001x\030\002 \001(\005\022\t\n\001y\030\003 \001(\005\"\232\001\n\014MoveResponse" +
-      "\022\014\n\004from\030\001 \001(\005\022\017\n\007correct\030\002 \001(\010\022.\n\006reaso" +
-      "n\030\003 \001(\0162\036.MoveResponse.MoveRejectReason\"" +
-      ";\n\020MoveRejectReason\022\010\n\004NONE\020\000\022\r\n\tWRONG_P" +
-      "OS\020\001\022\016\n\nWRONG_TURN\020\002\"^\n\nGameResult\022\"\n\006re" +
-      "sult\030\001 \001(\0162\022.GameResult.Result\",\n\006Result" +
-      "\022\013\n\007NOUGHTS\020\000\022\013\n\007CROSSES\020\001\022\010\n\004DRAW\020\002\";\n\016" +
-      "PrivateMessage\022\014\n\004from\030\001 \001(\005\022\n\n\002to\030\002 \001(\005" +
-      "\022\017\n\007message\030\003 \001(\tB\tB\007Messageb\006proto3"
+      "eH\000\022!\n\ngameResult\030\t \001(\0132\013.GameResultH\000\022\037" +
+      "\n\tgameStart\030\n \001(\0132\n.GameStartH\000\0223\n\023partn" +
+      "erDisconnected\030\013 \001(\0132\024.PartnerDisconnect" +
+      "edH\000\022\025\n\004turn\030\014 \001(\0132\005.TurnH\000B\005\n\003msg\"\030\n\010Re" +
+      "gister\022\014\n\004nick\030\001 \001(\t\"9\n\020RegisterResponse" +
+      "\022\017\n\007success\030\001 \001(\010\022\024\n\014clientNumber\030\002 \001(\005\"" +
+      "\"\n\006Client\022\014\n\004nick\030\001 \001(\t\022\n\n\002id\030\002 \001(\005\"\'\n\013C" +
+      "lientsList\022\030\n\007clients\030\001 \003(\0132\007.Client\"*\n\016" +
+      "GameInvitation\022\014\n\004from\030\001 \001(\005\022\n\n\002to\030\002 \001(\005" +
+      "\"D\n\026GameInvitationResponse\022\014\n\004from\030\001 \001(\005" +
+      "\022\n\n\002to\030\002 \001(\005\022\020\n\010accepted\030\003 \001(\010\"-\n\tGameSt" +
+      "art\022\017\n\007noughts\030\001 \001(\005\022\017\n\007crosses\030\002 \001(\005\"\024\n" +
+      "\004Turn\022\014\n\004turn\030\001 \001(\005\"6\n\023PartnerDisconnect" +
+      "ed\022\017\n\007partner\030\001 \001(\005\022\016\n\006client\030\002 \001(\005\"*\n\004M" +
+      "ove\022\014\n\004from\030\001 \001(\005\022\t\n\001x\030\002 \001(\005\022\t\n\001y\030\003 \001(\005\"" +
+      "s\n\014MoveResponse\022\014\n\004from\030\001 \001(\005\022$\n\006status\030" +
+      "\002 \001(\0162\024.MoveResponse.Status\"/\n\006Status\022\006\n" +
+      "\002OK\020\000\022\r\n\tWRONG_POS\020\001\022\016\n\nWRONG_TURN\020\002\"h\n\n" +
+      "GameResult\022\"\n\006result\030\001 \001(\0162\022.GameResult." +
+      "Result\"6\n\006Result\022\013\n\007NOUGHTS\020\000\022\013\n\007CROSSES" +
+      "\020\001\022\010\n\004DRAW\020\002\022\010\n\004NONE\020\003\";\n\016PrivateMessage" +
+      "\022\014\n\004from\030\001 \001(\005\022\n\n\002to\030\002 \001(\005\022\017\n\007message\030\003 " +
+      "\001(\tB\tB\007Messageb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9098,7 +11418,7 @@ public final class Message {
     internal_static_WrapperMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WrapperMessage_descriptor,
-        new java.lang.String[] { "Register", "ClientsList", "GameInvitation", "Move", "PrivateMessage", "RegisterResponse", "GameInvitationResponse", "MoveResponse", "GameResult", "Msg", });
+        new java.lang.String[] { "Register", "ClientsList", "GameInvitation", "Move", "PrivateMessage", "RegisterResponse", "GameInvitationResponse", "MoveResponse", "GameResult", "GameStart", "PartnerDisconnected", "Turn", "Msg", });
     internal_static_Register_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Register_fieldAccessorTable = new
@@ -9110,7 +11430,7 @@ public final class Message {
     internal_static_RegisterResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RegisterResponse_descriptor,
-        new java.lang.String[] { "Success", });
+        new java.lang.String[] { "Success", "ClientNumber", });
     internal_static_Client_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_Client_fieldAccessorTable = new
@@ -9135,26 +11455,44 @@ public final class Message {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GameInvitationResponse_descriptor,
         new java.lang.String[] { "From", "To", "Accepted", });
-    internal_static_Move_descriptor =
+    internal_static_GameStart_descriptor =
       getDescriptor().getMessageTypes().get(7);
+    internal_static_GameStart_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GameStart_descriptor,
+        new java.lang.String[] { "Noughts", "Crosses", });
+    internal_static_Turn_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_Turn_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Turn_descriptor,
+        new java.lang.String[] { "Turn", });
+    internal_static_PartnerDisconnected_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_PartnerDisconnected_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_PartnerDisconnected_descriptor,
+        new java.lang.String[] { "Partner", "Client", });
+    internal_static_Move_descriptor =
+      getDescriptor().getMessageTypes().get(10);
     internal_static_Move_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Move_descriptor,
         new java.lang.String[] { "From", "X", "Y", });
     internal_static_MoveResponse_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_MoveResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MoveResponse_descriptor,
-        new java.lang.String[] { "From", "Correct", "Reason", });
+        new java.lang.String[] { "From", "Status", });
     internal_static_GameResult_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_GameResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GameResult_descriptor,
         new java.lang.String[] { "Result", });
     internal_static_PrivateMessage_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_PrivateMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PrivateMessage_descriptor,

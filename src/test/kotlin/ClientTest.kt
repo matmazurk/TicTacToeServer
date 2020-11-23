@@ -1,15 +1,25 @@
-import java.net.Socket
 import Message.*
+import com.google.protobuf.ExtensionRegistryLite
 import org.junit.jupiter.api.*
-import org.mockito.Mockito.*
+import org.junit.runner.RunWith
+import org.mockito.Mockito.verify
+import org.powermock.api.mockito.PowerMockito
+import org.powermock.api.mockito.PowerMockito.*
+import org.powermock.core.classloader.annotations.PrepareForTest
+import org.powermock.modules.junit4.PowerMockRunner
+
 import java.io.InputStream
 import java.io.OutputStream
 import java.net.ServerSocket
+import java.net.Socket
+
 
 const val CLIENT_NUMBER = 1
 const val CLIENT_NICK = "CZOP"
 const val PORT = 43211
 
+@RunWith(PowerMockRunner::class)
+@PrepareForTest(WrapperMessage::class)
 class ClientTest {
 
     private lateinit var serverSocket: ServerSocket
@@ -20,23 +30,48 @@ class ClientTest {
     private val clientHandlerMock = mock(ClientHandler::class.java)
     private lateinit var client: Client
     private val wait get() = sleep()
+    private val inputStreamMock = mock(InputStream::class.java)
+    private val socketMock = mock(Socket::class.java)
 
     @BeforeEach
     fun setup() {
-        serverSocket = ServerSocket(PORT)
-        otherSocket = Socket(serverSocket.inetAddress, PORT)
-        clientSocket = serverSocket.accept()
-        client = Client(clientSocket, CLIENT_NUMBER, clientHandlerMock)
-        otherInputStream = otherSocket.getInputStream()
-        otherOutputStream = otherSocket.getOutputStream()
-        client.handle()
+//        serverSocket = ServerSocket(PORT)
+//        otherSocket = Socket(serverSocket.inetAddress, PORT)
+//        clientSocket = serverSocket.accept()
+//        client = Client(clientSocket, CLIENT_NUMBER, clientHandlerMock)
+//        otherInputStream = otherSocket.getInputStream()
+//        otherOutputStream = otherSocket.getOutputStream()
+//        client.handle()
     }
 
     @AfterEach
     fun cleanup() {
-        clientSocket.close()
-        otherSocket.close()
-        serverSocket.close()
+//        clientSocket.close()
+//        otherSocket.close()
+//        serverSocket.close()
+    }
+
+    @Test
+    fun test_registration() {
+        val wrapperMessageBuilder = WrapperMessage.newBuilder()
+        val registerMessage = Register.newBuilder().build()
+        wrapperMessageBuilder.register = registerMessage
+        val wrapperMessage = wrapperMessageBuilder.build()
+
+        `when`(socketMock.getInputStream()).thenReturn(inputStreamMock)
+
+        PowerMockito.mockStatic(WrapperMessage::class.java)
+        `when`(WrapperMessage.parseDelimitedFrom(inputStreamMock)).thenReturn(wrapperMessage)
+//        mockStatic(WrapperMessage::class.java).use { theMock ->
+//            theMock.`when`<Any>{ WrapperMessage.parseDelimitedFrom(inputStreamMock) }.thenReturn(wrapperMessage)
+//            client = Client(socketMock, CLIENT_NUMBER, clientHandlerMock, theMock::class)
+//        }
+        client.handle()
+        wait
+
+        verify(clientHandlerMock).process(wrapperMessage, client)
+
+        client.disconnect()
     }
 
     @Test
@@ -47,6 +82,7 @@ class ClientTest {
         val sentMsg = WrapperMessage.parseDelimitedFrom(otherInputStream)
         assert(sentMsg.msgCase == WrapperMessage.MsgCase.REGISTERRESPONSE)
         assert(!sentMsg.registerResponse.success)
+        assert(sentMsg.registerResponse.clientNumber == -1)
     }
 
     @Test
@@ -57,6 +93,7 @@ class ClientTest {
         val sentMsg = WrapperMessage.parseDelimitedFrom(otherInputStream)
         assert(sentMsg.msgCase == WrapperMessage.MsgCase.REGISTERRESPONSE)
         assert(sentMsg.registerResponse.success)
+        assert(sentMsg.registerResponse.clientNumber != -1)
     }
 
     @Test
@@ -104,27 +141,25 @@ class ClientTest {
 
     @Test
     fun test_send_move_response_correct_move() {
-        val valid = true
-        client.sendMoveResponse(CLIENT_NUMBER, valid)
+        val status = MoveResponse.Status.OK
+        client.sendMoveResponse(CLIENT_NUMBER, status)
         val sentMessage = interceptSentMessage()
         assert(sentMessage.msgCase == WrapperMessage.MsgCase.MOVERESPONSE)
         sentMessage.moveResponse.run {
             assert(from == CLIENT_NUMBER)
-            assert(this.correct == valid)
+            assert(this.status == status)
         }
     }
 
     @Test
     fun test_send_move_response_wrong_move() {
-        val valid = false
-        val reason = MoveResponse.MoveRejectReason.WRONG_POS
-        client.sendMoveResponse(CLIENT_NUMBER, valid, reason)
+        val status = MoveResponse.Status.WRONG_POS
+        client.sendMoveResponse(CLIENT_NUMBER, status)
         val sentMessage = interceptSentMessage()
         assert(sentMessage.msgCase == WrapperMessage.MsgCase.MOVERESPONSE)
         sentMessage.moveResponse.run {
             assert(from == CLIENT_NUMBER)
-            assert(this.correct == valid)
-            assert(this.reason == reason)
+            assert(this.status == status)
         }
     }
 
@@ -157,10 +192,10 @@ class ClientTest {
 
     private fun prepareClientsListMap() : Map<Int, String> =
             mapOf(
-                    2 to "CZOPEK",
-                    3 to "OKO",
-                    4 to "noga",
-                    5 to "kolo"
+                2 to "CZOPEK",
+                3 to "OKO",
+                4 to "noga",
+                5 to "kolo"
             )
 
     private fun prepareClientsListMessage(clientsMap: Map<Int, String>): WrapperMessage {
